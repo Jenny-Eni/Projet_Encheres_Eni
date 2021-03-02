@@ -1,9 +1,12 @@
 package fr.eni.encheres.bo;
 
+import java.io.Serializable;
 
-public class Utilisateurs {
+public class Utilisateurs implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	
-	private int noUtilisateur;
+	private int noUtilisateur; 
 	private String pseudo;
 	private String nom;
 	private String prenom;
@@ -14,7 +17,8 @@ public class Utilisateurs {
 	private String ville;
 	private String motDePasse;
 	private int credit;
-	private int administrateur;
+	private boolean administrateur;
+	
 	public int getNoUtilisateur() {
 		return noUtilisateur;
 	}
@@ -81,14 +85,41 @@ public class Utilisateurs {
 	public void setCredit(int credit) {
 		this.credit = credit;
 	}
-	public int getAdministrateur() {
+	public boolean getAdministrateur() {
 		return administrateur;
 	}
-	public void setAdministrateur(int administrateur) {
+	public void setAdministrateur(boolean administrateur) {
 		this.administrateur = administrateur;
 	}
 	
+	public Utilisateurs( ) {
+		
+	}
 	
+	public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
+			 String ville, String motDePasse, int credit, boolean administrateur) {
+		
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.motDePasse = motDePasse;
+		this.credit = credit;
+		this.administrateur = administrateur;
+	}
 	
-
+	public Utilisateurs(int noUtilisateur,String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
+			 String ville, String motDePasse, int credit, boolean administrateur) {
+		
+		this( pseudo,  nom,  prenom,  email,  telephone,  rue,  codePostal,
+			  ville,  motDePasse,  credit,  administrateur);
+		
+		this.noUtilisateur = noUtilisateur;
+		
+	}
+	
 }
