@@ -12,6 +12,10 @@ public class Categories implements Serializable {
 		
 	}
 
+	public Categories(String libelle) {
+		this.libelle = libelle;
+	}
+	
 	public Categories(int noCategorie, String libelle) {
 		this.noCategorie = noCategorie;
 		this.libelle = libelle;
