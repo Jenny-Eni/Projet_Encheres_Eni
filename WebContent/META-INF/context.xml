@@ -4,7 +4,7 @@
 		name = "jdbc/pool_cnx"
 		driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
 		type = "javax.sql.DataSource"
-		url = "jdbc:sqlserver://localhost;databasename=BDD_REPAS"
+		url = "jdbc:sqlserver://localhost;databasename=TP_ENCHERE_DB"
 		username = "TP"
 		password = "eni"
 		maxTotal = "100"
