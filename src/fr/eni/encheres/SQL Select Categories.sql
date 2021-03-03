@@ -1,0 +1,1 @@
+Select no_categorie, libelle From CATEGORIES ORDER BY libelle

@@ -1,0 +1,1 @@
+INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES ('The Rock','Johnson','Dwayne','djohnson@gmail.com','0684656665','9301 Wilshire Blvd.','90210','Beverly Hills','imthebest',100, 0)

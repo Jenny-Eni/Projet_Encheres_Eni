@@ -1,0 +1,1 @@
+Select no_categorie, libelle From CATEGORIES WHERE no_categorie = 25;

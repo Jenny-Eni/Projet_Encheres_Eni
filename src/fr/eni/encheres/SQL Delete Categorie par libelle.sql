@@ -1,0 +1,1 @@
+DELETE FROM CATEGORIES WHERE no_categorie = 33;

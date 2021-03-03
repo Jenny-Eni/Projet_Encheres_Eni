@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import fr.eni.encheres.bll.UtilisateurManager;
 
 
-@WebServlet("/ServletTest")
-public class ServletTest extends HttpServlet {
+@WebServlet("/ServletTestUtilisateur")
+public class ServletTestUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     
