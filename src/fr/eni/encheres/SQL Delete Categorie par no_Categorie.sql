@@ -1,1 +1,1 @@
-DELETE FROM CATEGORIES WHERE libelle = 'Pokemon';
+DELETE FROM CATEGORIES WHERE no_categorie = 33;
