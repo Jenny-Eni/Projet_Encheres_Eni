@@ -2,21 +2,21 @@ package fr.eni.encheres.bo;
 
 import java.io.Serializable;
 
-public class Categories implements Serializable {
+public class Categorie implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int noCategorie;
 	private String libelle;
 	
-	public Categories() {
+	public Categorie() {
 		
 	}
 
-	public Categories(String libelle) {
+	public Categorie(String libelle) {
 		this.libelle = libelle;
 	}
 	
-	public Categories(int noCategorie, String libelle) {
+	public Categorie(int noCategorie, String libelle) {
 		this.noCategorie = noCategorie;
 		this.libelle = libelle;
 	}

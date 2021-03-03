@@ -3,7 +3,7 @@ package fr.eni.encheres.bo;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Encheres implements Serializable {
+public class Enchere implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int noUtilisateur;
@@ -11,11 +11,11 @@ public class Encheres implements Serializable {
 	private LocalDate dateEnchere;
 	private int montantEnchere;
 	
-	public Encheres() {
+	public Enchere() {
 		
 	}
 
-	public Encheres(int noUtilisateur, int noArticle, LocalDate dateEnchere, int montantEnchere) {
+	public Enchere(int noUtilisateur, int noArticle, LocalDate dateEnchere, int montantEnchere) {
 		this.noUtilisateur = noUtilisateur;
 		this.noArticle = noArticle;
 		this.dateEnchere = dateEnchere;

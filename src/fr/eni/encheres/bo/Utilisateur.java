@@ -2,7 +2,7 @@ package fr.eni.encheres.bo;
 
 import java.io.Serializable;
 
-public class Utilisateurs implements Serializable {
+public class Utilisateur implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	
@@ -92,11 +92,11 @@ public class Utilisateurs implements Serializable {
 		this.administrateur = administrateur;
 	}
 	
-	public Utilisateurs( ) {
+	public Utilisateur( ) {
 		
 	}
 	
-	public Utilisateurs(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
+	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
 			 String ville, String motDePasse, int credit, boolean administrateur) {
 		
 		this.pseudo = pseudo;
@@ -112,7 +112,7 @@ public class Utilisateurs implements Serializable {
 		this.administrateur = administrateur;
 	}
 	
-	public Utilisateurs(int noUtilisateur,String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
+	public Utilisateur(int noUtilisateur,String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
 			 String ville, String motDePasse, int credit, boolean administrateur) {
 		
 		this( pseudo,  nom,  prenom,  email,  telephone,  rue,  codePostal,

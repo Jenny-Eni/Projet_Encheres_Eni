@@ -1,6 +1,6 @@
 package fr.eni.encheres.bll;
 
-import fr.eni.encheres.bo.Utilisateurs;
+import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.DAOFactory;
 import fr.eni.encheres.dal.UtilisateurDAO;
 
@@ -12,23 +12,23 @@ public class UtilisateurManager {
 		this.utilisateurDAO = DAOFactory.getUtilisateurDAO();
 	}
 	
-	public Utilisateurs ajouterUtilisateur(int noUtilisateur,String pseudo, String nom, String prenom, String email,
+	public Utilisateur ajouterUtilisateur(int noUtilisateur,String pseudo, String nom, String prenom, String email,
 										   String telephone, String rue, String codePostal,
 										   String ville, String motDePasse, int credit, boolean administrateur) {
-		Utilisateurs utilisateurs = new Utilisateurs();
-		utilisateurs.setPseudo(pseudo);
-		utilisateurs.setNom(nom);
-		utilisateurs.setPrenom(prenom);
-		utilisateurs.setEmail(email);
-		utilisateurs.setTelephone(telephone);
-		utilisateurs.setRue(rue);
-		utilisateurs.setCodePostal(codePostal);
-		utilisateurs.setVille(ville);
-		utilisateurs.setMotDePasse(motDePasse);
-		utilisateurs.setCredit(100);
-		utilisateurs.setAdministrateur(false);
-		this.utilisateurDAO.ajouterUtilisateur(utilisateurs);
-		return utilisateurs;
+		Utilisateur utilisateur = new Utilisateur();
+		utilisateur.setPseudo(pseudo);
+		utilisateur.setNom(nom);
+		utilisateur.setPrenom(prenom);
+		utilisateur.setEmail(email);
+		utilisateur.setTelephone(telephone);
+		utilisateur.setRue(rue);
+		utilisateur.setCodePostal(codePostal);
+		utilisateur.setVille(ville);
+		utilisateur.setMotDePasse(motDePasse);
+		utilisateur.setCredit(100);
+		utilisateur.setAdministrateur(false);
+		this.utilisateurDAO.ajouterUtilisateur(utilisateur);
+		return utilisateur;
 		
 	}
 }

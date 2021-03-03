@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class ArticlesVendus implements Serializable{
+public class ArticleVendu implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private int noArticle;
@@ -120,11 +120,11 @@ public class ArticlesVendus implements Serializable{
 		this.heureFinEncheres = heureFinEncheres;
 	}
 
-	public ArticlesVendus() {
+	public ArticleVendu() {
 		
 	}
 	
-	public ArticlesVendus( String nomArticle, String description, LocalDate dateDebutEncheres,
+	public ArticleVendu( String nomArticle, String description, LocalDate dateDebutEncheres,
 			LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie,
 			String statut, LocalTime heureDebutEncheres, LocalTime heureFinEncheres ) {
 		super();
@@ -141,7 +141,7 @@ public class ArticlesVendus implements Serializable{
 		this.heureFinEncheres = heureFinEncheres;
 	}
 	
-	public ArticlesVendus(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
+	public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
 			LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie,
 			String statut, LocalTime heureDebutEncheres, LocalTime heureFinEncheres) {
 		this(nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente,

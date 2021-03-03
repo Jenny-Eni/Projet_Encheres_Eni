@@ -4,8 +4,8 @@ import fr.eni.encheres.bo.*;
 
 public interface UtilisateurDAO {
 	
-	public int ajouterUtilisateur(Utilisateurs utilisateurs);
-	public void updateUtilisateur(Utilisateurs utilisateurs);
-	public void supprimerUtilisateur(Utilisateurs utilisateurs);
+	public void ajouterUtilisateur(Utilisateur utilisateurs);
+	public void updateUtilisateur(Utilisateur utilisateurs);
+	public void supprimerUtilisateur(Utilisateur utilisateurs);
 
 }
