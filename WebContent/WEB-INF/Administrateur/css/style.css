@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* Pour un simple afficher-masquer */
+[role="tabpanel"][aria-hidden="true"] {
+  display: none;
+}
+
+/* Pour un effet sur les éléments désactivés */
+[role="tab"][aria-disabled="true"] {
+  opacity: 0.5;
+}
