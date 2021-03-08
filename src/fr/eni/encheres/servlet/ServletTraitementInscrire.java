@@ -21,10 +21,11 @@ public class ServletTraitementInscrire extends HttpServlet {
 
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/InscriptionUtilisateur/Inscription.jsp");
 		rd.forward(request, response);
-		
 	}
+
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -51,6 +52,7 @@ public class ServletTraitementInscrire extends HttpServlet {
 		codePostal = request.getParameter("codePostal");
 		ville = request.getParameter("ville");
 		motDePasse = request.getParameter("password");
+
 		
 		
 		//J'envoie mes données
@@ -59,9 +61,8 @@ public class ServletTraitementInscrire extends HttpServlet {
 		Utilisateur user = nouvelUtilisateur.ajouterUtilisateur(0, pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, 0, false);
 
 		request.setAttribute("user", user);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/InscriptionUtilisateur/Inscription.jsp");
-		rd.forward(request, response);
+
+
 		doGet(request, response);
 	}
 
