@@ -12,7 +12,7 @@ import fr.eni.encheres.bo.Utilisateur;
 public class UtilisateurDAOJdbc implements UtilisateurDAO{
 	
 	private static final String SQL_INSERT = "INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
-	private static final String SQL_SELECT = "SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur FROM UTILISATEURS WHERE no_utilisateur = ?;";
+	private static final String SQL_SELECT = "SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur FROM UTILISATEURS WHERE email = ?;";
 	private static final String SQL_VERIF = "Select email from utilisateurs where email = ?;";
 	
 	
@@ -67,13 +67,13 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 	}
 
 	@Override
-	public Utilisateur selectUtilisateur(int no_Utilisateur) {
+	public Utilisateur selectUtilisateur(String email) {
 		try(Connection cnx = ConnectionProvider.getConnection()){
 			try {
 				PreparedStatement stmt = null;
 		        ResultSet rs = null;
 		        stmt = cnx.prepareStatement(SQL_SELECT);
-		        stmt.setInt(1, no_Utilisateur);
+		        stmt.setString(1, email);
 		        rs = stmt.executeQuery();
 		        Utilisateur user = new Utilisateur();
 		        while (rs.next()) {
@@ -114,7 +114,7 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 				PreparedStatement stmt = null;
 				ResultSet rs = null;
 		        stmt = cnx.prepareStatement(SQL_VERIF);
-		        stmt.setString(1, "jeanpapin@gmail.com");
+		        stmt.setString(1, email);
 		        rs = stmt.executeQuery();
 		        
 		        while (rs.next()) {

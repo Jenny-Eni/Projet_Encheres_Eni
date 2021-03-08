@@ -40,9 +40,9 @@ public class UtilisateurManager {
 		
 	}
 	
-	public Utilisateur afficherUtilisateur (int noUtilisateur) {
+	public Utilisateur afficherUtilisateur (String email) {
 		Utilisateur utilisateur = new Utilisateur();
-		utilisateur = utilisateurDAO.selectUtilisateur(noUtilisateur);
+		utilisateur = utilisateurDAO.selectUtilisateur(email);
 		return utilisateur;
 
 		

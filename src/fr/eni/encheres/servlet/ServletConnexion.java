@@ -39,8 +39,7 @@ public class ServletConnexion extends HttpServlet {
 		UtilisateurManager utilisateurManager = new UtilisateurManager();
 		if(utilisateurManager.verifierEmail(email)) {
 			Utilisateur user = new Utilisateur();
-			UtilisateurManager user2 = new UtilisateurManager();
-			user = user2.afficherUtilisateur(12);
+			user = utilisateurManager.afficherUtilisateur(email);
 			String pseudo = user.getPseudo();
 			String nom = user.getNom();
 			String prenom = user.getPrenom();
