@@ -6,7 +6,7 @@ public interface UtilisateurDAO {
 	
 	public void ajouterUtilisateur(Utilisateur utilisateurs);
 	public Utilisateur selectUtilisateur(String email);
-	public void updateUtilisateur(Utilisateur utilisateurs);
+	public void modifierUtilisateur(Utilisateur userAModifier, String email);
 	public void supprimerUtilisateur(Utilisateur utilisateurs);
 	public boolean verifierEmail(String email);
 

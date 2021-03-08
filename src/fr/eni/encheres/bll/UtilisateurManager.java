@@ -1,5 +1,7 @@
 package fr.eni.encheres.bll;
 
+import java.util.List;
+
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.DAOFactory;
 import fr.eni.encheres.dal.UtilisateurDAO;
@@ -46,6 +48,11 @@ public class UtilisateurManager {
 		return utilisateur;
 
 		
+	}
+
+	public void modifierUtilisateur(Utilisateur userAModifier, String email) {
+		utilisateurDAO.modifierUtilisateur(userAModifier, email);
+
 	}
 
 
