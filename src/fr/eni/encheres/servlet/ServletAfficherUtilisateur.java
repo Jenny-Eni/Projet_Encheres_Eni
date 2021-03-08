@@ -27,7 +27,7 @@ public class ServletAfficherUtilisateur extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Utilisateur user = new Utilisateur();
 		UtilisateurManager user2 = new UtilisateurManager();
-		user = user2.afficherUtilisateur(12);
+		user = user2.afficherUtilisateur(2);
 		String pseudo = user.getPseudo();
 		String nom = user.getNom();
 		String prenom = user.getPrenom();
