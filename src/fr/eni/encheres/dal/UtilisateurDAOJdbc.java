@@ -12,7 +12,10 @@ import fr.eni.encheres.bo.Utilisateur;
 public class UtilisateurDAOJdbc implements UtilisateurDAO{
 	
 	private static final String SQL_INSERT = "INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
-
+	private static final String SQL_SELECT = "SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur FROM UTILISATEURS WHERE no_utilisateur = 12";
+	private static final String SQL_VERIF = "Select email from utilisateurs where email = ?";
+	
+	
 	@Override
 	public void ajouterUtilisateur(Utilisateur utilisateur) {
 		try(Connection cnx = ConnectionProvider.getConnection()){
@@ -39,7 +42,7 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 		        }
 		        rs.close();
 		        stmt.close();
-		        
+		        cnx.close();
 		        
 			}catch(SQLException e) {
 				e.printStackTrace();
@@ -63,4 +66,73 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 		
 	}
 
-}
+	@Override
+	public Utilisateur selectUtilisateur(int no_Utilisateur) {
+		try(Connection cnx = ConnectionProvider.getConnection()){
+			try {
+				Statement stmt = null;
+		        ResultSet rs = null;
+		        stmt = cnx.createStatement();
+		        rs = stmt.executeQuery(SQL_SELECT);
+		        Utilisateur user = new Utilisateur();
+		        while (rs.next()) {
+		        user.setNoUtilisateur(rs.getInt("no_utilisateur"));
+		        user.setPseudo(rs.getString("pseudo"));
+		        user.setNom(rs.getString("nom"));
+		        user.setPrenom(rs.getString("prenom"));
+		        user.setEmail(rs.getString("email"));
+		        user.setTelephone(rs.getString("telephone"));
+		        user.setRue(rs.getString("rue"));
+		        user.setCodePostal(rs.getString("code_postal"));
+		        user.setVille(rs.getString("ville"));
+		        user.setMotDePasse(rs.getString("mot_de_passe"));
+		        user.setCredit(rs.getInt("credit"));
+		        user.setAdministrateur(rs.getBoolean("administrateur"));
+		        }
+		        rs.close();
+		        stmt.close();
+				return user;
+				
+			}catch(SQLException e) {
+				e.printStackTrace();
+				return null;
+			}
+			
+	} catch (SQLException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+		return null;
+	}
+
+	}
+
+	@Override
+	public boolean verifierEmail(String email) {
+		try(Connection cnx = ConnectionProvider.getConnection()){
+			try {
+				PreparedStatement stmt = null;
+				ResultSet rs = null;
+		        stmt = cnx.prepareStatement(SQL_VERIF);
+		        stmt.setString(1, "jeanpapin@gmail.com");
+		        rs = stmt.executeQuery();
+		        
+		        while (rs.next()) {
+		        	return true;
+		        }
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		return false;
+		
+	} catch (SQLException e1) {
+		e1.printStackTrace();
+	}
+		return false;
+	}}
+		
+
+
+
+		
+	
+
