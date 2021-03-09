@@ -46,7 +46,7 @@ public class UtilisateurManager {
 	}
 	
 	public void modifierUtilisateur(Utilisateur userAModifier,String email) {
-		
+		utilisateurDAO.modifierUtilisateur(userAModifier, email);
 	}
 		
 
