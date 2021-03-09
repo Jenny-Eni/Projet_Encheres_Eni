@@ -1,6 +1,7 @@
 package fr.eni.encheres.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,34 +21,12 @@ import fr.eni.encheres.bo.Utilisateur;
 public class ServletAfficherUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
+  
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Utilisateur user = new Utilisateur();
-		UtilisateurManager user2 = new UtilisateurManager();
-		user = user2.afficherUtilisateur(2);
-		String pseudo = user.getPseudo();
-		String nom = user.getNom();
-		String prenom = user.getPrenom();
-		String email = user.getEmail();
-		String telephone = user.getTelephone();
-		String rue = user.getRue();
-		String cp = user.getCodePostal();
-		String ville = user.getVille();
-		String mdp = user.getMotDePasse();
-		
-		request.setAttribute("pseudo", pseudo);
-		request.setAttribute("nom", nom);
-		request.setAttribute("prenom", prenom);
-		request.setAttribute("email", email);
-		request.setAttribute("telephone", telephone);
-		request.setAttribute("rue", rue);
-		request.setAttribute("cp", cp);
-		request.setAttribute("ville", ville);
 
-		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/AffichageUtilisateur/AffichageUtilisateur.jsp");
 		rd.forward(request, response);
 
@@ -57,9 +36,56 @@ public class ServletAfficherUtilisateur extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String pseudo = null;
+		String nom = null;
+		String prenom = null;
+		String email = null;
+		String telephone = null;
+		String rue = null;
+		String codePostal = null;
+		String ville = null;
+		String motDePasse = null;
+		Utilisateur userAModifier = new Utilisateur();
 
+
+			
+			//Je récupère les données et je construis mon user à modifier
+				pseudo = request.getParameter("pseudo_a_modifier");
+				userAModifier.setPseudo(pseudo);
+				nom = request.getParameter("nom_a_modifier");
+				userAModifier.setNom(nom);
+				prenom = request.getParameter("prenom_a_modifier");
+				userAModifier.setPrenom(prenom);
+				email = request.getParameter("email");
+				telephone = request.getParameter("telephone_a_modifier");
+				userAModifier.setTelephone(telephone);
+				rue = request.getParameter("rue_a_modifier");
+				userAModifier.setRue(rue);
+				codePostal = request.getParameter("codePostal_a_modifier");
+				userAModifier.setCodePostal(codePostal);
+				ville = request.getParameter("ville_a_modifier");
+				userAModifier.setVille(ville);
+				motDePasse = request.getParameter("password_a_modifier");
+				userAModifier.setMotDePasse(motDePasse);
+			
+			//J'envoie mes données
+			
+			UtilisateurManager nouvelUtilisateur = new UtilisateurManager();
+			nouvelUtilisateur.modifierUtilisateur(userAModifier,email);
+
+			request.setAttribute("pseudo", userAModifier.getPseudo());
+			request.setAttribute("nom", userAModifier.getNom());
+			request.setAttribute("prenom", userAModifier.getPrenom());
+			request.setAttribute("email", email);
+			request.setAttribute("telephone", userAModifier.getTelephone());
+			request.setAttribute("rue", userAModifier.getRue());
+			request.setAttribute("cp", userAModifier.getCodePostal());
+			request.setAttribute("ville", userAModifier.getVille());
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/AffichageUtilisateur/AffichageUtilisateur.jsp");
+			rd.forward(request, response);
 		
-//		doGet(request, response);
+
 	}
 
 }

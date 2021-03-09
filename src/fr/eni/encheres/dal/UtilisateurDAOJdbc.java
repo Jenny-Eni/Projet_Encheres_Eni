@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import fr.eni.encheres.bo.Utilisateur;
 
@@ -56,8 +58,76 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 	}
 
 	@Override
-	public void updateUtilisateur(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
+	public void modifierUtilisateur(Utilisateur utilisateur, String email) {
+		try(Connection cnx = ConnectionProvider.getConnection()){
+			try {
+				Statement stmt = null;
+		        stmt = cnx.createStatement();
+
+		        String pseudo = utilisateur.getPseudo();
+		        String nom = utilisateur.getNom();
+		        String prenom = utilisateur.getPrenom();
+		        String telephone = utilisateur.getTelephone();
+		        String rue = utilisateur.getRue();
+		        String cp = utilisateur.getCodePostal();
+		        String ville = utilisateur.getVille();
+		        String mdp = utilisateur.getMotDePasse();
+		        
+		        List<String> constructeurRequete = new ArrayList<String>();
+		        
+		        if (!pseudo.isEmpty() && pseudo!= null) {
+		        	String constr = "pseudo = '";
+		        	constructeurRequete.add(constr.concat(pseudo).concat("'"));
+		        }
+		        if (!nom.isEmpty() && nom!= null) {
+		        	String constr = "nom = '";
+		        	constructeurRequete.add(constr.concat(nom).concat("'"));
+		        }		
+		        if (!prenom.isEmpty() && prenom!= null) {
+		        	String constr = "prenom = '";
+		        	constructeurRequete.add(constr.concat(prenom).concat("'"));
+		        }			
+		        if (!telephone.isEmpty() && telephone!= null) {
+		        	String constr = "telephone = '";
+		        	constructeurRequete.add(constr.concat(telephone).concat("'"));
+		        }
+		        if (!rue.isEmpty() && rue!= null) {
+		        	String constr = "rue = '";	        	
+		        	constructeurRequete.add(constr.concat(rue).concat("'"));
+		        }
+		        if (!cp.isEmpty() && cp!= null) {
+		        	String constr = "code_postal = '";	        	
+		        	constructeurRequete.add(constr.concat(cp).concat("'"));
+		        }		        	
+		        if (!ville.isEmpty() && ville!= null) {
+		        	String constr = "ville = '";
+		        	constructeurRequete.add(constr.concat(ville).concat("'"));
+		        }		        	
+		        if (!mdp.isEmpty() && mdp!= null) {
+		        	String constr = "mot_de_passe = '";
+		        	constructeurRequete.add(constr.concat(mdp).concat("'"));
+		        }
+		        
+		        StringBuilder sb = new StringBuilder();
+		        sb.append("UPDATE UTILISATEURS SET ");
+		        	for (int i = 1; i <= constructeurRequete.size();i++) { 
+		        			sb.append(constructeurRequete.get(i - 1));
+		        	if(i < constructeurRequete.size()) {	
+		        		sb.append(",");
+		        }
+			}		        	
+		        sb.append(" WHERE email = '" + email + "';" );
+		        
+		        stmt.executeUpdate(sb.toString());		        		        	
+		        stmt.close();
+				
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+	} catch (SQLException e1) {
+		e1.printStackTrace();
+	}
 		
 	}
 
@@ -162,6 +232,8 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 		}
 		return false;
 	}
+
+	
 
 	
 }

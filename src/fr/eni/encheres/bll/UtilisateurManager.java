@@ -44,6 +44,10 @@ public class UtilisateurManager {
 		return utilisateurDAO.verifierPassword(noUtilisateur, password);
 
 	}
+	
+	public void modifierUtilisateur(Utilisateur userAModifier,String email) {
+		
+	}
 		
 
 }
