@@ -10,60 +10,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.encheres.bll.UtilisateurManager;
-import fr.eni.encheres.bo.Utilisateur;
 
-/**
- * Servlet implementation class ServletConnexion
- */
-@WebServlet("/Connexion/ServletConnexion")
-public class ServletConnexion extends HttpServlet {
+
+@WebServlet("/Connexion/ServletConnexionUtilisateur")
+public class ServletConnexionUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private boolean presenceCookieEmailUtilisateur = false;
+    
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Connexion/Connexion.jsp");
-			rd.forward(request, response);
-
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Connexion/ConnexionUtilisateur.jsp");
+		rd.forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String email = null;
-		email = request.getParameter("email");
-		UtilisateurManager utilisateurManager = new UtilisateurManager();
-		if(utilisateurManager.verifierEmail(email)) {
-			Utilisateur user = new Utilisateur();
-			UtilisateurManager user2 = new UtilisateurManager();
-			user = user2.afficherUtilisateur(12);
-			String pseudo = user.getPseudo();
-			String nom = user.getNom();
-			String prenom = user.getPrenom();
-			String email2 = user.getEmail();
-			String telephone = user.getTelephone();
-			String rue = user.getRue();
-			String cp = user.getCodePostal();
-			String ville = user.getVille();
-			String mdp = user.getMotDePasse();
-			
-			request.setAttribute("pseudo", pseudo);
-			request.setAttribute("nom", nom);
-			request.setAttribute("prenom", prenom);
-			request.setAttribute("email", email2);
-			request.setAttribute("telephone", telephone);
-			request.setAttribute("rue", rue);
-			request.setAttribute("cp", cp);
-			request.setAttribute("ville", ville);
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/AffichageUtilisateur/AffichageUtilisateur.jsp");
-			rd.forward(request, response);
-
+		UtilisateurManager um = new UtilisateurManager();
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		int id = um.verifierEmail(email);
+		boolean validationPassword = um.verifierPassword(id, password);
+		if(id == 0 || !validationPassword) {
+			System.out.println("Erreur de mot de passe ou d'adresse mail");
+		} else {
+			System.out.println("Login ok");
 		}
-		
 	}
-
 }
