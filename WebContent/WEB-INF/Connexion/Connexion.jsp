@@ -15,13 +15,14 @@
 
         <form action="<%=request.getContextPath()%>/Connexion/ServletConnexion" method="post">
 		<label for="email">Adresse mail : </label>
-		<input type="text" id="email" name="email" value="<%=request.getParameter("email")%>"/>
+		<input type="email" id="email" name="email" required/>
 		<br/>
 		<label for="password">Mot de passe: </label>
-		<input type="password" id="password" name="password" value="<%=request.getParameter("password")%>"/>
+		<input type="password" id="password" name="password" required/>
 		<br/>
+		
 	<br>
-		<input type="submit" value="Valider"/>
+		<input type="submit" value="Se Connecter"/>
         </form>
     </body>
 </html>

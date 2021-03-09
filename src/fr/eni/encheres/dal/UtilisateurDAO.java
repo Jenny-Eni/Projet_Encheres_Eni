@@ -8,6 +8,7 @@ public interface UtilisateurDAO {
 	public Utilisateur selectUtilisateur(int no_Utilisateur);
 	public void updateUtilisateur(Utilisateur utilisateurs);
 	public void supprimerUtilisateur(Utilisateur utilisateurs);
-	public boolean verifierEmail(String email);
+	public int verifierEmail(String email);
+	public boolean verifierPassword(int noUtilisateur, String password);
 
 }

@@ -32,21 +32,18 @@ public class UtilisateurManager {
 		
 	}
 	
-	public boolean verifierEmail(String email) {
-		if(utilisateurDAO.verifierEmail(email)) {
-			return true;
-		}
-		return false;
-		
+	public int verifierEmail(String email) {
+		return utilisateurDAO.verifierEmail(email);
 	}
 	
 	public Utilisateur afficherUtilisateur (int noUtilisateur) {
-		Utilisateur utilisateur = new Utilisateur();
-		utilisateur = utilisateurDAO.selectUtilisateur(noUtilisateur);
-		return utilisateur;
-
-		
+		return utilisateurDAO.selectUtilisateur(noUtilisateur);
 	}
+	
+	public boolean verifierPassword(int noUtilisateur, String password) {
+		return utilisateurDAO.verifierPassword(noUtilisateur, password);
 
+	}
+		
 
 }
