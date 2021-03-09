@@ -72,15 +72,27 @@ public class ServletAfficherUtilisateur extends HttpServlet {
 			
 			UtilisateurManager nouvelUtilisateur = new UtilisateurManager();
 			nouvelUtilisateur.modifierUtilisateur(userAModifier,email);
-
-			request.setAttribute("pseudo", userAModifier.getPseudo());
-			request.setAttribute("nom", userAModifier.getNom());
-			request.setAttribute("prenom", userAModifier.getPrenom());
+			
+			Utilisateur user = new Utilisateur();
+			user = nouvelUtilisateur.afficherUtilisateur(nouvelUtilisateur.verifierEmail(email));
+			 pseudo = user.getPseudo();
+			 nom = user.getNom();
+			 prenom = user.getPrenom();
+			 email = user.getEmail();
+			 telephone = user.getTelephone();
+			 rue = user.getRue();
+			 codePostal = user.getCodePostal();
+			 ville = user.getVille();
+			 motDePasse = user.getMotDePasse();
+			
+			request.setAttribute("pseudo", pseudo);
+			request.setAttribute("nom", nom);
+			request.setAttribute("prenom", prenom);
 			request.setAttribute("email", email);
-			request.setAttribute("telephone", userAModifier.getTelephone());
-			request.setAttribute("rue", userAModifier.getRue());
-			request.setAttribute("cp", userAModifier.getCodePostal());
-			request.setAttribute("ville", userAModifier.getVille());
+			request.setAttribute("telephone", telephone);
+			request.setAttribute("rue", rue);
+			request.setAttribute("cp", codePostal);
+			request.setAttribute("ville", ville);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/AffichageUtilisateur/AffichageUtilisateur.jsp");
 			rd.forward(request, response);
