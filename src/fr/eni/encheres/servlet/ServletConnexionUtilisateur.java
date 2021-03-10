@@ -20,10 +20,15 @@ public class ServletConnexionUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("connect").equals("Connexion")) {
+		String connexion = request.getParameter("connect");
+		
+		if(connexion == null || connexion.isEmpty()) 
+			connexion = "Connexion";
+			
+		if (connexion.equals("Connexion")) {
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Connexion/ConnexionUtilisateur.jsp");
 			rd.forward(request, response);
-		} else if (request.getParameter("connect").equals("Déconnexion")){
+		} else if (connexion.equals("Déconnexion")){
 			HttpSession session = request.getSession();
 			session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("/PageAccueilTest.jsp");

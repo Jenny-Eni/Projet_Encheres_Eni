@@ -87,6 +87,7 @@
             </div>
         </form>
 	</div>
+	<a href="<%=request.getContextPath()%>/ServletPageAccueil">Page d'accueil</a>
 	
 
 </body>

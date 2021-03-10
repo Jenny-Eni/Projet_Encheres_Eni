@@ -25,7 +25,7 @@
 			</div>
 			<input type="submit" value="Se Connecter"/>
 			</form>
-			<form action="<%=request.getContextPath()%>/Connexion/ServletCreerUnUtilisateur" method="get">
+			<form action="<%=request.getContextPath()%>/InscriptionUtilisateur/ServletTraitementInscrire" method="get">
 				<input type="submit" value="Créer un compte"/>
 			</form>
 			<c:choose>

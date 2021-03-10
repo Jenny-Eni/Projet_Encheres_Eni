@@ -38,28 +38,26 @@ public class ServletTraitementInscrire extends HttpServlet {
 		String codePostal = request.getParameter("codePostal");
 		String ville = request.getParameter("ville");
 		String motDePasse = request.getParameter("password");
-		String message = null;
+		String message;
 		Utilisateur utilisateur = new Utilisateur(0, pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, 100, false);
 		UtilisateurManager um = new UtilisateurManager();
-			
+		request.setAttribute("utilisateur",  utilisateur);
+		
 		//J'envoie mes donnÃ©es
-		if (um.verifierEmail(email) == 0){
-			message = "Il y a un compte existant relié à cet email !";
-		} else if (request.getParameter("password").equals(request.getParameter("confirm"))){
+		if (um.verifierEmail(email) != 0){
+			message = ("Il y a un compte existant relié à l'email "+ email);
+			utilisateur.setEmail("");
+		} else if (!request.getParameter("password").equals(request.getParameter("confirm"))){
 			message = "Les mots de passe ne correspondent pas";
 		} else {
-		
-		
-		if (request.getParameter("password").equals(request.getParameter("confirm")) && um.verifierEmail(email) == 0) {
-			
 			Utilisateur user = um.ajouterUtilisateur(0, pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, 100, false);
-		} else {
-			
+			message = "Utilisateur créé";
 		}
 		
 		request.setAttribute("message", message);
-		doGet(request, response);
-		}
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/InscriptionUtilisateur/Inscription.jsp");
+		rd.forward(request, response);
+		
 	}
 
 }
