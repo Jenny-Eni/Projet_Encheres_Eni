@@ -14,15 +14,18 @@
         <h1>Connexion</h1>
 
         <form action="<%=request.getContextPath()%>/Connexion/ServletConnexionUtilisateur" method="post">
-		<div>
-			<label for="email">Adresse mail : </label>
-			<input type="email" id="email" name="email" required/>
-		</div>
-		<div>	
-			<label for="password">Mot de passe: </label>
-			<input type="password" id="password" name="password" required/>
-		</div>
+			<div>
+				<label for="email">Adresse mail : </label>
+				<input type="email" id="email" name="email" required/>
+			</div>
+			<div>	
+				<label for="password">Mot de passe: </label>
+				<input type="password" id="password" name="password" required/>
+			</div>
 			<input type="submit" value="Se Connecter"/>
-        </form>
+		</form>
+		<form action="<%=request.getContextPath()%>/Connexion/ServletCreerUnUtilisateur" method="get">
+			<input type="submit" value="Créer un compte"/>
+		</form>
     </body>
 </html>

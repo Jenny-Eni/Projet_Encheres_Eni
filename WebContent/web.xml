@@ -11,4 +11,13 @@
   <url-pattern>/InscriptionUtilisateur/Inscription</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>JSPConnexionUtilisateur</servlet-name>
+  	<jsp-file>/WEB-INF/Connexion/ConnexionUtilisateur.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>JSPConnexionUtilisateur</servlet-name>
+  	<url-pattern>/Connexion/ConnexionUtilisateur</url-pattern>
+  </servlet-mapping>
+  
   </web-app>
