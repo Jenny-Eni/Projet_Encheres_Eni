@@ -12,6 +12,11 @@
 <c:choose>
 	<c:when test="${!empty sessionScope.prenom && !empty sessionScope.nom}">
 		<p>Bonjour ${sessionScope.prenom} ${sessionScope.nom}</p>
+		<c:if test="${sessionScope.admin == true}">
+			<form action="<%=request.getContextPath()%>/Administrateur/ServletAdministrateur" method="get">
+			<input type="submit" name="connect" value="Administration">
+		</form>
+		</c:if>
 		<form action="<%=request.getContextPath()%>/Connexion/ServletConnexionUtilisateur" method="get">
 			<input type="submit" name="connect" value="Déconnexion">
 		</form> 

@@ -34,7 +34,6 @@ public class ServletAdministrateur extends HttpServlet {
 		String nouvelleCategorie = request.getParameter("nouvelleCategorie");
 				
 		if (btn.equals("Ajouter") && !nouvelleCategorie.equals("saisir cat. à ajouter")) {
-			//gérer le retour d'erreur quand on ne mets rien dans la catégorie ou quand on a le message par défaut.
 			cm.ajouterCategorie(0, nouvelleCategorie);
 		}
 			
@@ -56,7 +55,7 @@ public class ServletAdministrateur extends HttpServlet {
 			cm.supprimerCategorie(cat);
 		}
 		
-		//List<Utilisateur> listeUtilisateur = um.selectUtilisateur();
+		
 		if (btn.equals("Désactiver un compte")) {
 			//Filtrer les utilisateurs actif
 			System.out.println("filtre utilisateurs actifs");

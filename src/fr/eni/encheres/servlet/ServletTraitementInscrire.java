@@ -21,7 +21,6 @@ public class ServletTraitementInscrire extends HttpServlet {
 
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/InscriptionUtilisateur/Inscription.jsp");
 		rd.forward(request, response);
 	}
@@ -29,41 +28,38 @@ public class ServletTraitementInscrire extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	String pseudo = null;
-	String nom = null;
-	String prenom = null;
-	String email = null;
-	String telephone = null;
-	String rue = null;
-	String codePostal = null;
-	String ville = null;
-	String motDePasse = null;
-
-
-		
 		//Je récupère les données
-		
-		pseudo = request.getParameter("pseudo");
-		nom = request.getParameter("nom");
-		prenom = request.getParameter("prenom");
-		email = request.getParameter("email");
-		telephone = request.getParameter("telephone");
-		rue = request.getParameter("rue");
-		codePostal = request.getParameter("codePostal");
-		ville = request.getParameter("ville");
-		motDePasse = request.getParameter("password");
-
-		
-		
+		String pseudo = request.getParameter("pseudo");
+		String nom = request.getParameter("nom");
+		String prenom = request.getParameter("prenom");
+		String email = request.getParameter("email");
+		String telephone = request.getParameter("telephone");
+		String rue = request.getParameter("rue");
+		String codePostal = request.getParameter("codePostal");
+		String ville = request.getParameter("ville");
+		String motDePasse = request.getParameter("password");
+		String message = null;
+		Utilisateur utilisateur = new Utilisateur(0, pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, 100, false);
+		UtilisateurManager um = new UtilisateurManager();
+			
 		//J'envoie mes données
+		if (um.verifierEmail(email) == 0){
+			message = "Il y a un compte existant reli� � cet email !";
+		} else if (request.getParameter("password").equals(request.getParameter("confirm"))){
+			message = "Les mots de passe ne correspondent pas";
+		} else {
 		
-		UtilisateurManager nouvelUtilisateur = new UtilisateurManager();
-		Utilisateur user = nouvelUtilisateur.ajouterUtilisateur(0, pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, 0, false);
-
-		request.setAttribute("user", user);
-
-
+		
+		if (request.getParameter("password").equals(request.getParameter("confirm")) && um.verifierEmail(email) == 0) {
+			
+			Utilisateur user = um.ajouterUtilisateur(0, pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, 100, false);
+		} else {
+			
+		}
+		
+		request.setAttribute("message", message);
 		doGet(request, response);
+		}
 	}
 
 }

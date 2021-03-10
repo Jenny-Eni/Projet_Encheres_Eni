@@ -47,6 +47,7 @@ public class ServletConnexionUtilisateur extends HttpServlet {
 			session.setAttribute("id", id);
 			session.setAttribute("nom", um.afficherUtilisateur(id).getNom());
 			session.setAttribute("prenom", um.afficherUtilisateur(id).getPrenom());
+			session.setAttribute("admin", um.afficherUtilisateur(id).getAdministrateur());
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Connexion/ConnexionUtilisateur.jsp");
 			rd.forward(request, response);
 			

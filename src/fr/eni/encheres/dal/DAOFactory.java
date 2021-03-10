@@ -10,7 +10,7 @@ public abstract class DAOFactory {
 		return new CategorieDAOJdbc();
 	}
 	
-	public static ArticleVenduDAO getArticleVenduDAO() {
-		return new ArticleVenduDAOJdbc();
-	}
+	//public static ArticleVenduDAO getArticleVenduDAO() {
+		//return new ArticleVenduDAOJdbc();
+	//}
 }

@@ -157,7 +157,7 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 			        user.setRue(rs.getString("rue"));
 			        user.setCodePostal(rs.getString("code_postal"));
 			        user.setVille(rs.getString("ville"));
-			        user.setMotDePasse(rs.getString("mot_de_passe"));
+			        user.setMotDePasse("********");
 			        user.setCredit(rs.getInt("credit"));
 			        user.setAdministrateur(rs.getBoolean("administrateur"));
 			    }
