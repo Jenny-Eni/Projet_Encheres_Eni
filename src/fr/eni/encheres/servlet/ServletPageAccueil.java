@@ -19,18 +19,7 @@ public class ServletPageAccueil extends HttpServlet {
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Cookie[] cookies = request.getCookies();
-		if(cookies!=null){
-			for(Cookie c:cookies){
-				if(c.getName().equals("idUtilisateur")){
-					UtilisateurManager um = new UtilisateurManager();
-					Utilisateur utilisateur = um.afficherUtilisateur(Integer.parseInt(c.getValue()));
-					request.setAttribute("utilisateur", utilisateur);
-					break;
-				}
-			}
-		}
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/PageAccueilTest.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/PageAccueilTest.jsp");
 		rd.forward(request, response);
 	}
 
