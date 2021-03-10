@@ -1,6 +1,7 @@
 package fr.eni.encheres.bo;
 
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -109,7 +110,7 @@ public class ArticleVendu implements Serializable{
 	}
 	
 	public ArticleVendu( String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, int prixInitial, int noUtilisateur, int noCategorie) {
+			LocalDate dateFinEncheres, int prixInitial, int noUtilisateur, int noCategorie)  throws SQLException {
 		super();
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -123,8 +124,8 @@ public class ArticleVendu implements Serializable{
 	}
 	
 	public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie) {
-		this(nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, noUtilisateur, noCategorie);
+			LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie)  throws SQLException{
+		this(nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, noUtilisateur, noCategorie) ;
 		this.prixVente = prixVente;
 		this.noArticle = noArticle;
 	}

@@ -29,31 +29,28 @@ function afficher_div(id)
 	
 </script>
 <h1>Mon profil : </h1>
-	<div id="a_masquer">
+
 		<form action="<%=request.getContextPath()%>/AffichageUtilisateur/ServletAfficherUtilisateur" method="post" >
-		<%	String pseudo = (String) request.getAttribute("pseudo");%>
-		<label for="idPseudo">Pseudo : </label> <%=pseudo %>
+		<label for="idPseudo">Pseudo : ${sessionScope.pseudo} </label> 
 		<br>
-		<%	String nom = (String) request.getAttribute("nom");%>
-		<label for="idNom">Nom : </label> <%=nom %>
+		<label for="idNom">Nom : ${sessionScope.nom} </label>
 		<br>
-		<%	String prenom = (String) request.getAttribute("prenom");%>
-		<label for="idPrenom">Prénom : </label> <%=prenom %>
+		<label for="idPrenom">Prenom : ${sessionScope.prenom} </label> 
 		<br>
-		<%	String email = (String) request.getAttribute("email");%>
-		<label for="idEmail">Email : </label> <%=email %>
+		<label for="idEmail">Email : ${sessionScope.email} </label>
 		<br>
-		<%	String telephone = (String) request.getAttribute("telephone");%>
-		<label for="idTelephone">Téléphone : </label> <%=telephone %>
+		<label for="idTelephone">Téléphone : ${sessionScope.telephone} </label> 
 		<br>
-		<%	String rue = (String) request.getAttribute("rue");%>
-		<label for="idrue">Rue : </label> <%=rue %>
+		<label for="idRue">Rue : ${sessionScope.rue} </label>
 		<br>
-		<%	String cp = (String) request.getAttribute("cp");%>
-		<label for="idcp">Code Postal : </label> <%=cp %>
+		<label for="idCp">Code postal : ${sessionScope.cp} </label> 
 		<br>
-		<%	String ville = (String) request.getAttribute("ville");%>
-		<label for="idVille">Ville : </label> <%=ville %>
+		<label for="idVille">Ville : ${sessionScope.ville} </label>
+		<br>
+		<label for="idPassword">Mot de passe : ${sessionScope.password} </label> 
+		<br>
+
+
 		</form>
 		<input type="button" id="modifier" value="Modifier" onclick="masquer_div('a_masquer'); afficher_div('a_afficher');" />
 		</div>
@@ -70,8 +67,7 @@ function afficher_div(id)
 		<label for="idPrenom">Prénom : </label>
 		<input type="text" id="idPrenom" name="prenom_a_modifier" value=""/>
 		<br/>
-		<% email = (String) request.getAttribute("email");%>
-		<label for="idEmail">Email : </label> <input type="text" name="email" value="<%=email %>"/>
+		<label for="idEmail">Email : </label> <input type="text" name="email" value=""/>
 		<br>
 		<label for="idTelephone">Téléphone : </label>
 		<input type="text" id="idTelephone" name="telephone_a_modifier" value=""/>
@@ -94,13 +90,5 @@ function afficher_div(id)
 		</div></form>
 		
 	
-		 <form action="<%=request.getContextPath()%>/NouvelleVente/ServletNouvelleVente" method="post" >
-		 <div>
-		 		<% int idUtilisateur = (Integer) request.getAttribute("idUtilisateur");%>
-		<label for="idUtilisateur">idUtilisateur : </label> <input type="text" name="idUtilisateur" value="<%=idUtilisateur %>"/>
-		<br>
-		 <input type="submit" value="Nouvelle vente"/>
-		 </div>	
-		 </form>
 </body>
 </html>

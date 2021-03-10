@@ -1,6 +1,8 @@
 package fr.eni.encheres.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +16,16 @@ public class ServletCreerUnUtilisateur extends HttpServlet {
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// à completer avec la lien de la page création d'utilisateur.
-		response.getWriter().append("Création Utilisateur");
+		// ï¿½ completer avec la lien de la page crï¿½ation d'utilisateur.
+		response.getWriter().append("Crï¿½ation Utilisateur");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// à compléter avec le code de création d'un utilisateur.
 		doGet(request, response);
+
 	}
 
 }

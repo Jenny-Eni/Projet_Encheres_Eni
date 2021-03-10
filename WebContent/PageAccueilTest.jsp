@@ -8,7 +8,11 @@
 <title>Page Accueil</title>
 </head>
 <body>
+<div>
+<h1>Liste des enchères</h1>
+</div>
 
+<div id="d1">
 <c:choose>
 	<c:when test="${!empty sessionScope.prenom && !empty sessionScope.nom}">
 		<p>Bonjour ${sessionScope.prenom} ${sessionScope.nom}</p>
@@ -23,10 +27,19 @@
 	</c:when>
 	<c:otherwise>
 		<form action="<%=request.getContextPath()%>/Connexion/ServletConnexionUtilisateur" method="get">
-			<input type="submit" name="connect" value="Connexion">
+			<input type="submit" name="connect" value="S'inscrire - Se Connecter"/>
 		</form>
+		
 	</c:otherwise>
 </c:choose>
+</div>
+
+		<form action="<%=request.getContextPath()%>/AffichageUtilisateur/ServletAfficherUtilisateur" method="get">
+			<input type="submit"  value="Mon profil"  />
+			</form>
+ 		<form action="<%=request.getContextPath()%>/NouvelleVente/ServletNouvelleVente" method="get">
+			<input type="submit"  value="Vendre un article" />
+			</form>
 
 
 

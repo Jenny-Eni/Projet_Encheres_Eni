@@ -45,17 +45,17 @@ public class ServletTraitementInscrire extends HttpServlet {
 		
 		//J'envoie mes donnÃ©es
 		if (um.verifierEmail(email) != 0){
-			message = ("Il y a un compte existant relié à l'email "+ email);
+			message = ("Il y a un compte existant reliï¿½ ï¿½ l'email "+ email);
 			utilisateur.setEmail("");
 		} else if (!request.getParameter("password").equals(request.getParameter("confirm"))){
 			message = "Les mots de passe ne correspondent pas";
 		} else {
 			Utilisateur user = um.ajouterUtilisateur(0, pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, 100, false);
-			message = "Utilisateur créé";
+			message = "Utilisateur crï¿½ï¿½";
 		}
 		
 		request.setAttribute("message", message);
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/InscriptionUtilisateur/Inscription.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("PageAccueilTest.jsp");
 		rd.forward(request, response);
 		
 	}
