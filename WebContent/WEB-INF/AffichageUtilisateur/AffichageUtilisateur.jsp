@@ -27,7 +27,7 @@ function afficher_div(id)
 	  }
 	}
 	
-	</script>
+</script>
 <h1>Mon profil : </h1>
 	<div id="a_masquer">
 		<form action="<%=request.getContextPath()%>/AffichageUtilisateur/ServletAfficherUtilisateur" method="post" >
@@ -93,7 +93,14 @@ function afficher_div(id)
 		<input type="button" value="Annuler" onclick="masquer_div('a_afficher'); afficher_div('a_masquer');" />
 		</div></form>
 		
-		
-</div>
+	
+		 <form action="<%=request.getContextPath()%>/NouvelleVente/ServletNouvelleVente" method="post" >
+		 <div>
+		 		<% int idUtilisateur = (Integer) request.getAttribute("idUtilisateur");%>
+		<label for="idUtilisateur">idUtilisateur : </label> <input type="text" name="idUtilisateur" value="<%=idUtilisateur %>"/>
+		<br>
+		 <input type="submit" value="Nouvelle vente"/>
+		 </div>	
+		 </form>
 </body>
 </html>

@@ -45,6 +45,7 @@ public class ServletAfficherUtilisateur extends HttpServlet {
 		String codePostal = null;
 		String ville = null;
 		String motDePasse = null;
+		int idUtilisateur = 0;
 		Utilisateur userAModifier = new Utilisateur();
 
 
@@ -84,7 +85,8 @@ public class ServletAfficherUtilisateur extends HttpServlet {
 			 codePostal = user.getCodePostal();
 			 ville = user.getVille();
 			 motDePasse = user.getMotDePasse();
-			
+			 idUtilisateur = user.getNoUtilisateur();
+			 
 			request.setAttribute("pseudo", pseudo);
 			request.setAttribute("nom", nom);
 			request.setAttribute("prenom", prenom);
@@ -93,10 +95,12 @@ public class ServletAfficherUtilisateur extends HttpServlet {
 			request.setAttribute("rue", rue);
 			request.setAttribute("cp", codePostal);
 			request.setAttribute("ville", ville);
+			request.setAttribute("idUtilisateur", idUtilisateur);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/AffichageUtilisateur/AffichageUtilisateur.jsp");
 			rd.forward(request, response);
-		
+			
+			
 
 	}
 

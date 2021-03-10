@@ -49,6 +49,7 @@ public class ServletConnexion extends HttpServlet {
 			String cp = user.getCodePostal();
 			String ville = user.getVille();
 			String mdp = user.getMotDePasse();
+			int idUtilisateur = user.getNoUtilisateur();
 			
 			request.setAttribute("pseudo", pseudo);
 			request.setAttribute("nom", nom);
@@ -58,6 +59,7 @@ public class ServletConnexion extends HttpServlet {
 			request.setAttribute("rue", rue);
 			request.setAttribute("cp", cp);
 			request.setAttribute("ville", ville);
+			request.setAttribute("idUtilisateur", idUtilisateur);
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/AffichageUtilisateur/AffichageUtilisateur.jsp");
 			rd.forward(request, response);
 

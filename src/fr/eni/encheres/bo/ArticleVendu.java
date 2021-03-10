@@ -17,8 +17,7 @@ public class ArticleVendu implements Serializable{
 	private int noUtilisateur;
 	private int noCategorie;
 	private String statut;
-	private LocalTime heureDebutEncheres;
-	private LocalTime heureFinEncheres;
+
 	
 	public int getNoArticle() {
 		return noArticle;
@@ -104,48 +103,29 @@ public class ArticleVendu implements Serializable{
 		return serialVersionUID;
 	}
 
-	public LocalTime getHeureDebutEncheres() {
-		return heureDebutEncheres;
-	}
-
-	public void setHeureDebutEncheres(LocalTime heureDebutEncheres) {
-		this.heureDebutEncheres = heureDebutEncheres;
-	}
-
-	public LocalTime getHeureFinEncheres() {
-		return heureFinEncheres;
-	}
-
-	public void setHeureFinEncheres(LocalTime heureFinEncheres) {
-		this.heureFinEncheres = heureFinEncheres;
-	}
 
 	public ArticleVendu() {
 		
 	}
 	
 	public ArticleVendu( String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie,
-			String statut, LocalTime heureDebutEncheres, LocalTime heureFinEncheres ) {
+			LocalDate dateFinEncheres, int prixInitial, int noUtilisateur, int noCategorie) {
 		super();
 		this.nomArticle = nomArticle;
 		this.description = description;
 		this.dateDebutEncheres = dateDebutEncheres;
 		this.dateFinEncheres = dateFinEncheres;
 		this.prixInitial = prixInitial;
-		this.prixVente = prixVente;
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
-		this.statut = statut;
-		this.heureDebutEncheres = heureDebutEncheres;
-		this.heureFinEncheres = heureFinEncheres;
+
+
 	}
 	
 	public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie,
-			String statut, LocalTime heureDebutEncheres, LocalTime heureFinEncheres) {
-		this(nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente,
-			noUtilisateur, noCategorie, statut, heureDebutEncheres, heureFinEncheres);
+			LocalDate dateFinEncheres, int prixInitial, int prixVente, int noUtilisateur, int noCategorie) {
+		this(nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, noUtilisateur, noCategorie);
+		this.prixVente = prixVente;
 		this.noArticle = noArticle;
 	}
 
@@ -154,8 +134,7 @@ public class ArticleVendu implements Serializable{
 		return "ArticlesVendus [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" +
 				description + ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres +
 				", prixInitial=" + prixInitial + ", prixVente=" + prixVente + ", noUtilisateur=" + noUtilisateur +
-				", noCategorie=" + noCategorie + ", statut=" + statut + ", heureDebutEncheres=" + heureDebutEncheres +
-				", heureFinEncheres=" + heureFinEncheres + "]";
+				", noCategorie=" + noCategorie + "]";
 	}
 	
 }
