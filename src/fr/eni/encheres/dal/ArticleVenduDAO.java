@@ -7,7 +7,7 @@ import fr.eni.encheres.bo.ArticleVendu;
 
 public interface ArticleVenduDAO {
 	
-	public void ajouterArticle(ArticleVendu articlesVendus, int noUtilisateur) throws SQLException;
+	public void ajouterArticle(ArticleVendu articleVendu) throws SQLException;
 	public List<ArticleVendu> selectArticle() throws SQLException;
 	public List<ArticleVendu> selectArticle(String statut) throws SQLException;
 	
