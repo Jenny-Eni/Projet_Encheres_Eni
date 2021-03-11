@@ -8,9 +8,7 @@
 <title>Page Accueil</title>
 </head>
 <body>
-<div>
-<h1>Liste des enchères</h1>
-</div>
+
 
 <div id="d1">
 <c:choose>
@@ -44,6 +42,21 @@
 			</form>
 		</c:if>
 
+<div>
+<h1>Liste des enchères</h1>
+
+<TABLE BORDER ="1">
+
+
+
+
+
+
+</TABLE>
+
+
+
+</div>
 
 </body>
 </html>
