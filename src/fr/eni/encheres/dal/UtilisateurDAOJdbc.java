@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.eni.encheres.bo.Categorie;
 import fr.eni.encheres.bo.Utilisateur;
 
 
@@ -17,6 +18,7 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 	private static final String SQL_SELECT = "SELECT no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur FROM UTILISATEURS WHERE no_utilisateur = ?;";
 	private static final String SQL_VERIF = "SELECT no_utilisateur from utilisateurs where email = ?;";
 	private static final String SQL_MOT_DE_PASSE = "SELECT mot_de_passe from utilisateurs where no_utilisateur = ? and mot_de_passe = ?;";
+	private static final String SQL_ALL = "Select no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur from UTILISATEURS;";
 	
 	
 	@Override
@@ -72,7 +74,7 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 		        String cp = utilisateur.getCodePostal();
 		        String ville = utilisateur.getVille();
 		        String mdp = utilisateur.getMotDePasse();
-		        String email = utilisateur.getMotDePasse();
+		        String email = utilisateur.getEmail();
 		        int idUser = utilisateur.getNoUtilisateur();
 		        
 		        List<String> constructeurRequete = new ArrayList<String>();
@@ -124,7 +126,7 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 			}		        	
 		        sb.append(" WHERE no_utilisateur = " + idUser + ";" );
 		        
-		        stmt.executeUpdate(sb.toString());		        		        	
+		        stmt.executeUpdate(sb.toString());		
 		        stmt.close();
 				
 			}catch(SQLException e) {
@@ -163,7 +165,7 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 			        user.setRue(rs.getString("rue"));
 			        user.setCodePostal(rs.getString("code_postal"));
 			        user.setVille(rs.getString("ville"));
-			        user.setMotDePasse("********");
+			        user.setMotDePasse(rs.getString("mot_de_passe"));
 			        user.setCredit(rs.getInt("credit"));
 			        user.setAdministrateur(rs.getBoolean("administrateur"));
 			    }
@@ -237,6 +239,37 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 			e1.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public List<Utilisateur> selectAllUtilisateur() {
+		
+		List<Utilisateur> listeUtilisateur = new ArrayList<Utilisateur>();
+		try(Connection cnx = ConnectionProvider.getConnection()){
+			try {
+				PreparedStatement stmt = null;
+		        ResultSet rs = null;
+		        stmt = cnx.prepareStatement(SQL_ALL);
+		        rs = stmt.executeQuery();
+		        while(rs.next()) {
+		        	listeUtilisateur.add(new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"),
+		        			rs.getString("prenom"), rs.getString("email"), rs.getString("telephone"), rs.getString("rue"), rs.getString("code_postal"),
+		        			rs.getString("ville"), rs.getString("mot_de_passe"), rs.getInt("credit"), rs.getBoolean("administrateur")));
+		        }
+		        rs.close();
+		        stmt.close();
+		        
+		        
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return listeUtilisateur;
+				
 	}
 	
 }

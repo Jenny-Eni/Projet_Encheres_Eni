@@ -48,41 +48,42 @@ function afficher_div(id)
 		<br>
 		<label for="idVille">Ville : ${sessionScope.ville} </label>
 		<br>
-		<label for="idPassword">Mot de passe : ${sessionScope.password} </label> 
+		<label for="idPassword">Mot de passe : ******** </label> 
 		<br>
 		</form>
 		<input type="button" id="modifier" value="Modifier" onclick="masquer_div('a_masquer'); afficher_div('a_afficher');" />
+		<button onclick="window.location.href='<%=request.getContextPath()%>/ServletPageAccueil';">retour</button>
 		</div>
 
  		<form action="<%=request.getContextPath()%>/AffichageUtilisateur/ServletAfficherUtilisateur" method="post" >
 	
 		<div id="a_afficher" style= display:none>
 		<label for="idPseudo">Pseudo : </label>
-		<input type="text" id="idPseudo" name="pseudo_a_modifier" value=""/>
+		<input type="text" id="idPseudo" name="pseudo_a_modifier" value="${sessionScope.pseudo}"/>
 		<br/>
 		<label for="idNom">Nom: </label>
-		<input type="text" id="idNom" name="nom_a_modifier" value=""/>
+		<input type="text" id="idNom" name="nom_a_modifier" value="${sessionScope.nom}"/>
 		<br/>
 		<label for="idPrenom">Prénom : </label>
-		<input type="text" id="idPrenom" name="prenom_a_modifier" value=""/>
+		<input type="text" id="idPrenom" name="prenom_a_modifier" value="${sessionScope.prenom}"/>
 		<br/>
 		<label for="idEmail">Email : </label>
-		<input type="text" id="idEmail" name="email_a_modifier" value=""/>
+		<input type="text" id="idEmail" name="email_a_modifier" value="${sessionScope.email}"/>
 		<br/>
 		<label for="idTelephone">Téléphone : </label>
-		<input type="text" id="idTelephone" name="telephone_a_modifier" value=""/>
+		<input type="text" id="idTelephone" name="telephone_a_modifier" value="${sessionScope.telephone}"/>
 		<br/>
 		<label for="idPrenom">Rue : </label>
-		<input type="text" id="idRue" name="rue_a_modifier" value=""/>
+		<input type="text" id="idRue" name="rue_a_modifier" value="${sessionScope.rue}"/>
 		<br/>
 		<label for="idCodePostal">Code Postal : </label>
-		<input type="text" id="idCodePostal" name="codePostal_a_modifier" value=""/>
+		<input type="text" id="idCodePostal" name="codePostal_a_modifier" value="${sessionScope.cp}"/>
 		<br/>
 		<label for="idVille">Ville : </label>
-		<input type="text" id="idVille" name="ville_a_modifier" value=""/>
+		<input type="text" id="idVille" name="ville_a_modifier" value="${sessionScope.ville}"/>
 		<br/>
 		<label for="idPassword">Mot de passe : </label>
-		<input type="password" id="idPassword" name="password_a_modifier" value=""/>
+		<input type="password" id="idPassword" name="password_a_modifier" value="${sessionScope.password}"/>
 		<br/>
 		
 		<input type="submit" value="Valider"/>

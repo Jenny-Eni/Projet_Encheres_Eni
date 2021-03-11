@@ -70,17 +70,32 @@
             <div>
             <c:choose >
                 <c:when test="${param.btn eq 'Désactiver un compte'}">
-                	
+                	<select name="desactiver" id="actif">
+	   					<option value="">--Choisir un utilisateur à désactiver--</option>
+	    				<c:forEach var="var" items="${listeUtilisateur}" >
+	    					<option value="${var.noUtilisateur}">${var.prenom} ${var.nom}</option>
+	    				</c:forEach>
+					</select>
                 	<input name="btn" type="submit" value="Désactiver">
                 </c:when>
                 
                 <c:when test="${param.btn eq 'Activer un compte désactivé'}">
-                	
+                	<select name="activer" id="actif">
+	   					<option value="">--Choisir un utilisateur à activer--</option>
+	    				<c:forEach var="var" items="${listeUtilisateur}" >
+	    					<option value="${var.noUtilisateur}">${var.prenom} ${var.nom}</option>
+	    				</c:forEach>
+					</select>
                 	<input name="btn" type="submit" value="Activer">
                 </c:when>
                  
                 <c:when test="${param.btn eq 'Supprimer un compte'}">
-	                               
+	                <select name="effacer" id="actif">
+	   					<option value="">--Choisir un utilisateur à supprimer--</option>
+	    				<c:forEach var="var" items="${listeUtilisateur}" >
+	    					<option value="${var.noUtilisateur}">${var.prenom} ${var.nom}</option>
+	    				</c:forEach>
+					</select>               
                  	<input name="btn" type="submit" value="Supprimer Définitivement">
                 </c:when>
             </c:choose>

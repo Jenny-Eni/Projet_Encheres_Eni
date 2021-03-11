@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.eni.encheres.bll.UtilisateurManager;
+import fr.eni.encheres.bo.Utilisateur;
 
 
 @WebServlet("/Connexion/ServletConnexionUtilisateur")
@@ -51,9 +52,17 @@ public class ServletConnexionUtilisateur extends HttpServlet {
 		} else {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
-			session.setAttribute("nom", um.afficherUtilisateur(id).getNom());
-			session.setAttribute("prenom", um.afficherUtilisateur(id).getPrenom());
-			session.setAttribute("admin", um.afficherUtilisateur(id).getAdministrateur());
+			Utilisateur user = um.afficherUtilisateur(id);
+			session.setAttribute("nom", user.getNom());
+			session.setAttribute("prenom", user.getPrenom());
+			session.setAttribute("admin", user.getAdministrateur());
+			session.setAttribute("pseudo", user.getPseudo());
+			session.setAttribute("email",user.getEmail());
+			session.setAttribute("telephone", user.getTelephone());
+			session.setAttribute("rue", user.getRue());
+			session.setAttribute("cp", user.getCodePostal());
+			session.setAttribute("ville", user.getVille());
+			session.setAttribute("password", user.getMotDePasse());
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Connexion/ConnexionUtilisateur.jsp");
 			rd.forward(request, response);
 			
