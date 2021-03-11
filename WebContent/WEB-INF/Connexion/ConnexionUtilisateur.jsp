@@ -11,7 +11,7 @@
 	<c:choose>
 		<c:when test="${!empty sessionScope.prenom && !empty sessionScope.nom}">Connection réussie vous êtes maintenant connecté comme ${sessionScope.prenom} ${sessionScope.nom}
 			<p>Vous allez être redirigé automatiquement vers la page d'accueil</p>
-			<meta http-equiv="refresh" content="4;url=<%=request.getContextPath()%>/PageAccueilTest.jsp">
+			<meta http-equiv="refresh" content="4;url=<%=request.getContextPath()%>/ServletPageAccueil">
 		</c:when>
 		<c:otherwise>
 			<form action="<%=request.getContextPath()%>/Connexion/ServletConnexionUtilisateur" method="post">

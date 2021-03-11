@@ -33,12 +33,12 @@
 	</c:otherwise>
 </c:choose>
 </div>
-		<c:if test="${sessionScope.admin == false}">
+		<c:if test="${!empty sessionScope.id}">
 			<form action="<%=request.getContextPath()%>/AffichageUtilisateur/ServletAfficherUtilisateur" method="get">
 			<input type="submit"  value="Mon profil"  />
 		</form>
 		</c:if>
-		<c:if test="${sessionScope.admin == false}">
+		<c:if test="${!empty sessionScope.id}">
  		<form action="<%=request.getContextPath()%>/NouvelleVente/ServletNouvelleVente" method="get">
 			<input type="submit"  value="Vendre un article" />
 			</form>

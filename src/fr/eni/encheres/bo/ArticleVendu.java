@@ -17,7 +17,7 @@ public class ArticleVendu implements Serializable{
 	private int prixVente;
 	private int noUtilisateur;
 	private int noCategorie;
-	private String statut;
+	
 
 	
 	public int getNoArticle() {
@@ -90,14 +90,6 @@ public class ArticleVendu implements Serializable{
 
 	public void setNoCategorie(int noCategorie) {
 		this.noCategorie = noCategorie;
-	}
-
-	public String getStatut() {
-		return statut;
-	}
-
-	public void setStatut(String statut) {
-		this.statut = statut;
 	}
 
 	public static long getSerialversionuid() {
