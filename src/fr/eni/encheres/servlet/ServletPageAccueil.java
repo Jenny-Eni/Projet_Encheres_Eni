@@ -25,7 +25,8 @@ public class ServletPageAccueil extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Page Accueil post");
+		RequestDispatcher rd = request.getRequestDispatcher("/PageAccueilTest.jsp");
+		rd.forward(request, response);
 	}
 
 }

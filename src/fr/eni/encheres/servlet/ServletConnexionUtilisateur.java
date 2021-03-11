@@ -28,10 +28,10 @@ public class ServletConnexionUtilisateur extends HttpServlet {
 		if (connexion.equals("S'inscrire - Se Connecter")) {
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Connexion/ConnexionUtilisateur.jsp");
 			rd.forward(request, response);
-		} else if (connexion.equals("Dï¿½connexion")){
+		} else if (connexion.equals("Déconnexion")){
 			HttpSession session = request.getSession();
 			session.invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher("/PageAccueilTest.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/ServletPageAccueil");
 			rd.forward(request, response);
 		}
 	}
@@ -44,6 +44,7 @@ public class ServletConnexionUtilisateur extends HttpServlet {
 		boolean validationPassword = um.verifierPassword(id, password);
 		request.setAttribute("id", id);
 		request.setAttribute("validationPassword", validationPassword);
+		
 		if(id == 0 || !validationPassword) {
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Connexion/ConnexionUtilisateur.jsp");
 			rd.forward(request, response);
@@ -53,13 +54,6 @@ public class ServletConnexionUtilisateur extends HttpServlet {
 			session.setAttribute("nom", um.afficherUtilisateur(id).getNom());
 			session.setAttribute("prenom", um.afficherUtilisateur(id).getPrenom());
 			session.setAttribute("admin", um.afficherUtilisateur(id).getAdministrateur());
-			session.setAttribute("pseudo", um.afficherUtilisateur(id).getPseudo());
-			session.setAttribute("email", um.afficherUtilisateur(id).getEmail());
-			session.setAttribute("telephone", um.afficherUtilisateur(id).getTelephone());
-			session.setAttribute("rue", um.afficherUtilisateur(id).getRue());
-			session.setAttribute("cp", um.afficherUtilisateur(id).getCodePostal());
-			session.setAttribute("ville", um.afficherUtilisateur(id).getVille());
-			session.setAttribute("password", um.afficherUtilisateur(id).getMotDePasse());
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Connexion/ConnexionUtilisateur.jsp");
 			rd.forward(request, response);
 			
