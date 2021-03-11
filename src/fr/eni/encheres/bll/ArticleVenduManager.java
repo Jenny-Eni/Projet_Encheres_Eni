@@ -3,6 +3,7 @@ package fr.eni.encheres.bll;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 import fr.eni.encheres.bo.ArticleVendu;
 import fr.eni.encheres.dal.ArticleVenduDAO;
@@ -29,4 +30,10 @@ public class ArticleVenduManager {
 		this.articleVenduDAO.ajouterArticle(article);
 		return article;
 		}
+	
+	public List<ArticleVendu> afficherArticle() throws SQLException {
+		return articleVenduDAO.selectArticle();
+
+		
+	}
 }

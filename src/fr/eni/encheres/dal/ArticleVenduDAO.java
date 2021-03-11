@@ -9,7 +9,6 @@ public interface ArticleVenduDAO {
 	
 	public void ajouterArticle(ArticleVendu articleVendu) throws SQLException;
 	public List<ArticleVendu> selectArticle() throws SQLException;
-	public List<ArticleVendu> selectArticle(String statut) throws SQLException;
 	
 
 }

@@ -3,7 +3,6 @@ package fr.eni.encheres.bo;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class ArticleVendu implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -128,6 +127,13 @@ public class ArticleVendu implements Serializable{
 		this(nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, noUtilisateur, noCategorie) ;
 		this.prixVente = prixVente;
 		this.noArticle = noArticle;
+	}
+
+	public ArticleVendu(String nomArticle, int prixInitial, LocalDate dateFinEncheres) {
+		this.nomArticle = nomArticle;
+		this.prixInitial = prixInitial;
+		this.dateFinEncheres = dateFinEncheres;
+	
 	}
 
 	@Override
