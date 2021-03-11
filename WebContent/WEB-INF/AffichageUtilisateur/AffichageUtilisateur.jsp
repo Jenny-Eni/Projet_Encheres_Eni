@@ -30,6 +30,7 @@ function afficher_div(id)
 </script>
 <h1>Mon profil : </h1>
 
+		<div id="a_masquer">
 		<form action="<%=request.getContextPath()%>/AffichageUtilisateur/ServletAfficherUtilisateur" method="post" >
 		<label for="idPseudo">Pseudo : ${sessionScope.pseudo} </label> 
 		<br>
@@ -49,13 +50,11 @@ function afficher_div(id)
 		<br>
 		<label for="idPassword">Mot de passe : ${sessionScope.password} </label> 
 		<br>
-
-
 		</form>
 		<input type="button" id="modifier" value="Modifier" onclick="masquer_div('a_masquer'); afficher_div('a_afficher');" />
 		</div>
 
- <form action="<%=request.getContextPath()%>/AffichageUtilisateur/ServletAfficherUtilisateur" method="post" >
+ 		<form action="<%=request.getContextPath()%>/AffichageUtilisateur/ServletAfficherUtilisateur" method="post" >
 	
 		<div id="a_afficher" style= display:none>
 		<label for="idPseudo">Pseudo : </label>
@@ -67,8 +66,9 @@ function afficher_div(id)
 		<label for="idPrenom">Prénom : </label>
 		<input type="text" id="idPrenom" name="prenom_a_modifier" value=""/>
 		<br/>
-		<label for="idEmail">Email : </label> <input type="text" name="email" value=""/>
-		<br>
+		<label for="idEmail">Email : </label>
+		<input type="text" id="idEmail" name="email_a_modifier" value=""/>
+		<br/>
 		<label for="idTelephone">Téléphone : </label>
 		<input type="text" id="idTelephone" name="telephone_a_modifier" value=""/>
 		<br/>
@@ -87,8 +87,10 @@ function afficher_div(id)
 		
 		<input type="submit" value="Valider"/>
 		<input type="button" value="Annuler" onclick="masquer_div('a_afficher'); afficher_div('a_masquer');" />
-		</div></form>
+		</div>
+		</form>
 		
-	
+		
+
 </body>
 </html>

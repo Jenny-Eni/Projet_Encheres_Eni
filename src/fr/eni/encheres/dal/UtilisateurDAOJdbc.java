@@ -58,7 +58,7 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 	}
 
 	@Override
-	public void modifierUtilisateur(Utilisateur utilisateur, String email) {
+	public void modifierUtilisateur(Utilisateur utilisateur, int noUtilisateur) {
 		try(Connection cnx = ConnectionProvider.getConnection()){
 			try {
 				Statement stmt = null;
@@ -72,6 +72,8 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 		        String cp = utilisateur.getCodePostal();
 		        String ville = utilisateur.getVille();
 		        String mdp = utilisateur.getMotDePasse();
+		        String email = utilisateur.getMotDePasse();
+		        int idUser = utilisateur.getNoUtilisateur();
 		        
 		        List<String> constructeurRequete = new ArrayList<String>();
 		        
@@ -86,7 +88,11 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 		        if (!prenom.isEmpty() && prenom!= null) {
 		        	String constr = "prenom = '";
 		        	constructeurRequete.add(constr.concat(prenom).concat("'"));
-		        }			
+		        }	
+		        if (!email.isEmpty() && email!= null) {
+		        	String constr = "email = '";
+		        	constructeurRequete.add(constr.concat(email).concat("'"));
+		        }
 		        if (!telephone.isEmpty() && telephone!= null) {
 		        	String constr = "telephone = '";
 		        	constructeurRequete.add(constr.concat(telephone).concat("'"));
@@ -116,7 +122,7 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 		        		sb.append(",");
 		        }
 			}		        	
-		        sb.append(" WHERE email = '" + email + "';" );
+		        sb.append(" WHERE no_utilisateur = " + idUser + ";" );
 		        
 		        stmt.executeUpdate(sb.toString());		        		        	
 		        stmt.close();
@@ -232,9 +238,6 @@ public class UtilisateurDAOJdbc implements UtilisateurDAO{
 		}
 		return false;
 	}
-
-	
-
 	
 }
 		

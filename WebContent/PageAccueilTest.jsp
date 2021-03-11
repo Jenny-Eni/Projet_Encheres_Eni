@@ -33,7 +33,7 @@
 	</c:otherwise>
 </c:choose>
 </div>
-
+<p>Faudrait cacher ces boutons et les faire afficher seulement quand l'user est connecté (j ai pas réussi on peut voir ca ensemble)
 		<form action="<%=request.getContextPath()%>/AffichageUtilisateur/ServletAfficherUtilisateur" method="get">
 			<input type="submit"  value="Mon profil"  />
 			</form>
