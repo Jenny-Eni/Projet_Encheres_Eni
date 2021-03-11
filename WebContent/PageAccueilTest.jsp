@@ -48,16 +48,70 @@
 		</c:if>
 
 
-<h2>Liste de toutes les ventes</h2>
-<p>afficher tous les articles en vente (à coder)</p>
-<TABLE BORDER ="1">
+<h2>Liste des enchères</h2>
 
-
-
-
-
-
-</TABLE>
+<div style = "width : 80%; display : block;">
+<div style =" width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; text-align : right; float : left;">
+<input name="" value="" style="border-style : none" />
+</br>
+Prix : <input name="" value="" style="border-style : none" />
+</br>
+Fin de l'enchère : <input name="" value ="" style="border-style : none" />
+</br>
+Vendeur : <input name="" value="" style="border-style : none" />
+</div>
+<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; text-align : right; margin-left : 50px; float : left;">
+<input name="" value="" style="border-style : none" />
+</br>
+Prix : <input name="" value="" style="border-style : none" />
+</br>
+Fin de l'enchère : <input name="" value ="" style="border-style : none" />
+</br>
+Vendeur : <input name="" value="" style="border-style : none" />
+</div>
+</div>
+</br>
+<div style="width : 80%; display : block; margin-top: 120px;">
+<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; text-align : right; float : left;">
+<input name="" value="" style="border-style : none" />
+</br>
+Prix : <input name="" value="" style="border-style : none" />
+</br>
+Fin de l'enchère : <input name="" value ="" style="border-style : none" />
+</br>
+Vendeur : <input name="" value="" style="border-style : none" />
+</div>
+<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; text-align : right; margin-left : 50px; float : left;">
+<input name="" value="" style="border-style : none" />
+</br>
+Prix : <input name="" value="" style="border-style : none" />
+</br>
+Fin de l'enchère : <input name="" value ="" style="border-style : none" />
+</br>
+Vendeur : <input name="" value="" style="border-style : none" />
+</div>
+</div>
+</br>
+<div style="width : 80%; display : block; margin-top: 120px;">
+<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; text-align : right; float : left;">
+<input name="" value="" style="border-style : none" />
+</br>
+Prix : <input name="" value="" style="border-style : none" />
+</br>
+Fin de l'enchère : <input name="" value ="" style="border-style : none" />
+</br>
+Vendeur : <input name="" value="" style="border-style : none" />
+</div>
+<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; text-align : right; margin-left : 50px; float : left;">
+<input name="" value="" style="border-style : none" />
+</br>
+Prix : <input name="" value="" style="border-style : none" />
+</br>
+Fin de l'enchère : <input name="" value ="" style="border-style : none" />
+</br>
+Vendeur : <input name="" value="" style="border-style : none" />
+</div>
+</div>
 
 </body>
 </html>
