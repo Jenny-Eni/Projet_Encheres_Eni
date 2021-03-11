@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.eni.encheres.bll.CategorieManager;
 import fr.eni.encheres.bll.UtilisateurManager;
 import fr.eni.encheres.bo.Categorie;
+import fr.eni.encheres.bo.Utilisateur;
 
 @WebServlet("/Administrateur/ServletAdministrateur")
 public class ServletAdministrateur extends HttpServlet {
@@ -56,20 +57,17 @@ public class ServletAdministrateur extends HttpServlet {
 		}
 		
 		
-		if (btn.equals("Désactiver un compte")) {
-			//Filtrer les utilisateurs actif
-			System.out.println("filtre utilisateurs actifs");
-			//request.setAttribute("listeUtilisateur", utilisateur);
+		
+		if (btn.equals("Désactiver un compte") || btn.equals("Activer un compte désactivé")) {
+			List<Utilisateur> listeUtilisateur = new ArrayList<Utilisateur>();
+			listeUtilisateur = um.selectAllUtilisateur();
+			request.setAttribute("listeUtilisateur", listeUtilisateur);
 		}
 		
-		if (btn.equals("Activer un compte désactivé")) {
-			//filtrer les utilisateurs inactifs
-			System.out.println("filtre utilisateurs inactifs");
-			//request.setAttribute("listeUtilisateur", utilisateur);
-		}
+		
 		
 		if (btn.equals("Désactiver")) {
-			//Récuperer l'object utilisateur et modifier son nom par le préfix * ou "desactivated" en concatenant avec son nom d'origine
+			//Récuperer l'object utilisateur et modifier son nom par le préfix * ou "deactivated(nom)" en concatenant avec son nom d'origine
 			//mets à jour le nom de l'utilisateur
 			System.out.println("Utilisateur désactivé");
 		}
