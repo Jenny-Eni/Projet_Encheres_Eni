@@ -43,7 +43,6 @@ public class ServletNouvelleVente extends HttpServlet {
 	}
 		
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-
 		String article = request.getParameter("article");
 		String description = request.getParameter("description");
 		int prix = Integer.parseInt(request.getParameter("prix"));
@@ -61,6 +60,8 @@ public class ServletNouvelleVente extends HttpServlet {
 			message = "Il faut un minimum de 7 jour entre le début de l'enchère et la fin";
 		} else if (ChronoUnit.DAYS.between(dateDebut, dateFin) < 0) {
 			message = "La date de la fin de l'enchère ne peut être antérieure à celle du début de l'enchère";
+		} else if (categorie == 0){
+			message = "Merci de choisir une catégorie";
 		} else {
 			//J'envoie mes donnÃ©es
 			try {

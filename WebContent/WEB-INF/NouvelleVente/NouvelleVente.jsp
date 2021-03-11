@@ -61,7 +61,7 @@ function decrease(){
 		<input type="submit" value="Valider"/>
 		<input type="reset" value="Effacer"/>
 	</form>
-		<input type="submit" value="Annuler"/>
+	<button onclick="window.location.href='<%=request.getContextPath()%>/ServletPageAccueil';">Annuler</button>
 		<p>${message}</p>
 </c:when>
 <c:otherwise>

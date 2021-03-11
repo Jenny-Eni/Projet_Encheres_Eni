@@ -87,7 +87,7 @@
             </div>
         </form>
 	</div>
-	<a href="<%=request.getContextPath()%>/ServletPageAccueil">Page d'accueil</a>
+	<button onclick="window.location.href='<%=request.getContextPath()%>/ServletPageAccueil';">Retour à l'accueil</button>
 	
 
 </body>

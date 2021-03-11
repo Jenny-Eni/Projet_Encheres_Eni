@@ -17,17 +17,19 @@
 			<form action="<%=request.getContextPath()%>/Connexion/ServletConnexionUtilisateur" method="post">
 			<div>
 				<label for="email">Adresse mail : </label>
-				<input type="email" id="email" name="email" required/>
+				<input type="email" id="email" name="email" required value=""/>
 			</div>
 			<div>	
 				<label for="password">Mot de passe: </label>
-				<input type="password" id="password" name="password" required/>
+				<input type="password" id="password" name="password" required value=""/>
 			</div>
 			<input type="submit" value="Se Connecter"/>
 			</form>
 			<form action="<%=request.getContextPath()%>/InscriptionUtilisateur/ServletTraitementInscrire" method="get">
 				<input type="submit" value="Créer un compte"/>
 			</form>
+			<button onclick="window.location.href='<%=request.getContextPath()%>/ServletPageAccueil';">Annuler</button>
+			
 			<c:choose>
 				<c:when test="${id == 0}">Il n'y a pas de compte avec cette adresse Email</c:when>
 				<c:otherwise>

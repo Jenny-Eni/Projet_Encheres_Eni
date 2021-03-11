@@ -115,9 +115,7 @@
 			<input type="submit" name="btn" value="Valider"/>
 			<input type="reset" value="Effacer"/>
 	</form>
-	<form action="<%=request.getContextPath()%>/InscriptionUtilisateur/ServletTraitementInscrire" method="post" >	
-		<input type="submit" name="btn" value="Annuler"/>
-	</form>
+	<button onclick="window.location.href='<%=request.getContextPath()%>/ServletPageAccueil';">Annuler</button>
 	<p>${message}</p>
 	<c:if test="${message == 'Utilisateur créé'}">
 	<p>Vous allez être redirigé automatiquement vers la page de connection</p>
