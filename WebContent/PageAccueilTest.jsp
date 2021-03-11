@@ -47,9 +47,9 @@
 			<p>afficher les articles en vente de l'utilisateur (à coder)</p>
 		</c:if>
 
-<div>
-<h1>Liste des enchères</h1>
 
+<h2>Liste de toutes les ventes</h2>
+<p>afficher tous les articles en vente (à coder)</p>
 <TABLE BORDER ="1">
 
 
@@ -58,13 +58,6 @@
 
 
 </TABLE>
-
-
-
-</div>
-
-<h2>Liste de toutes les ventes</h2>
-<p>afficher tous les articles en vente (à coder)</p>
 
 </body>
 </html>
