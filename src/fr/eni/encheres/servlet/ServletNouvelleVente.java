@@ -30,6 +30,7 @@ public class ServletNouvelleVente extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		CategorieManager cm = new CategorieManager();
 		List<Categorie> listCategorie = cm.selectCategorie();
 		request.setAttribute("categorie", listCategorie);
@@ -43,6 +44,7 @@ public class ServletNouvelleVente extends HttpServlet {
 	}
 		
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		request.setCharacterEncoding("UTF-8");
 		String article = request.getParameter("article");
 		String description = request.getParameter("description");
 		int prix = Integer.parseInt(request.getParameter("prix"));

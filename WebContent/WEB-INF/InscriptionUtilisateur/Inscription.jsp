@@ -10,7 +10,7 @@
 <body>
 	<h1>Inscription</h1>
 	
-		<form action="<%=request.getContextPath()%>/PageAccueilTest.jsp" method="post" >
+		<form action="<%=request.getContextPath()%>/InscriptionUtilisateur/ServletTraitementInscrire" method="post" >
 		<ul>
 			<li>	
 				<label for="idPseudo">Pseudo : </label>
