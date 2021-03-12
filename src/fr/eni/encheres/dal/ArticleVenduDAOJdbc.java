@@ -56,7 +56,7 @@ public class ArticleVenduDAOJdbc implements ArticleVenduDAO {
 		        stmt = cnx.prepareStatement(SQL_SELECT_ARTICLE);
 		        rs = stmt.executeQuery(); 
 		        while(rs.next()) {
-		        	listeArticle.add(new ArticleVendu(rs.getString("nom_article"), rs.getInt("prix_initial"), convertToLocalDateViaInstant(rs.getDate("date_fin_encheres"))));
+		        	listeArticle.add(new ArticleVendu(rs.getString("nom_article"), rs.getInt("prix_initial"),rs.getDate("date_fin_encheres").toLocalDate()));
 		        }
 		        rs.close();
 		        stmt.close();
@@ -72,11 +72,7 @@ public class ArticleVenduDAOJdbc implements ArticleVenduDAO {
 		return listeArticle;
 	}
 	
-	public LocalDate convertToLocalDateViaInstant(Date dateToConvert) {
-	    return dateToConvert.toInstant()
-	      .atZone(ZoneId.systemDefault())
-	      .toLocalDate();
-	}
+
 
 
 }

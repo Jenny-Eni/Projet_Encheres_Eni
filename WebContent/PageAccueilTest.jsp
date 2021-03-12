@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.time.LocalDate"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,68 +51,88 @@
 
 <h2>Liste des enchères</h2>
 
+
+
+
 <div style = "width : 80%; display : block;">
-<div style =" width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; text-align : right; float : left;">
-<input name="" value="" style="border-style : none" />
+<div style =" width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; float : left;">
+<%	String nomarticle0 = (String) request.getAttribute("nomarticle0");%>
+<div style="margin-left : 275px"><%=nomarticle0 %> </div>
 </br>
-Prix : <input name="" value="" style="border-style : none" />
+<%	int prixarticle0 = (int) request.getAttribute("prixarticle0");%>
+<div style="margin-left : 275px">Prix : <%=prixarticle0 %> points </div>
 </br>
-Fin de l'enchère : <input name="" value ="" style="border-style : none" />
+<%	LocalDate datefinarticle0 = (LocalDate) request.getAttribute("datefinarticle0");%>
+<div style="margin-left : 275px">Date Fin Enchères : <%=datefinarticle0 %> </div>
 </br>
-Vendeur : <input name="" value="" style="border-style : none" />
+<div style="margin-left : 275px">Vendeur : </div>
 </div>
-<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; text-align : right; margin-left : 50px; float : left;">
-<input name="" value="" style="border-style : none" />
+<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; margin-left : 50px; float : left;">
+<%	String nomarticle1 = (String) request.getAttribute("nomarticle1");%>
+<div style="margin-left : 275px"><%=nomarticle1 %> </div>
 </br>
-Prix : <input name="" value="" style="border-style : none" />
+<%	int prixarticle1 = (int) request.getAttribute("prixarticle1");%>
+<div style="margin-left : 275px">Prix : <%=prixarticle1 %> points </div>
 </br>
-Fin de l'enchère : <input name="" value ="" style="border-style : none" />
+<%	LocalDate datefinarticle1 = (LocalDate) request.getAttribute("datefinarticle1");%>
+<div style="margin-left : 275px">Date Fin Enchères : <%=datefinarticle1 %> </div>
 </br>
-Vendeur : <input name="" value="" style="border-style : none" />
-</div>
-</div>
-</br>
-<div style="width : 80%; display : block; margin-top: 120px;">
-<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; text-align : right; float : left;">
-<input name="" value="" style="border-style : none" />
-</br>
-Prix : <input name="" value="" style="border-style : none" />
-</br>
-Fin de l'enchère : <input name="" value ="" style="border-style : none" />
-</br>
-Vendeur : <input name="" value="" style="border-style : none" />
-</div>
-<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; text-align : right; margin-left : 50px; float : left;">
-<input name="" value="" style="border-style : none" />
-</br>
-Prix : <input name="" value="" style="border-style : none" />
-</br>
-Fin de l'enchère : <input name="" value ="" style="border-style : none" />
-</br>
-Vendeur : <input name="" value="" style="border-style : none" />
+<div style="margin-left : 275px">Vendeur : </div>
 </div>
 </div>
+<div style = "width : 80%; display : block;">
+<div style =" width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; float : left;">
+<%	String nomarticle2 = (String) request.getAttribute("nomarticle2");%>
+<div style="margin-left : 275px"><%=nomarticle2 %> </div>
 </br>
-<div style="width : 80%; display : block; margin-top: 120px;">
-<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; text-align : right; float : left;">
-<input name="" value="" style="border-style : none" />
+<%	int prixarticle2 = (int) request.getAttribute("prixarticle2");%>
+<div style="margin-left : 275px">Prix : <%=prixarticle2 %> points </div>
 </br>
-Prix : <input name="" value="" style="border-style : none" />
+<%	LocalDate datefinarticle2 = (LocalDate) request.getAttribute("datefinarticle2");%>
+<div style="margin-left : 275px">Date Fin Enchères : <%=datefinarticle2 %> </div>
 </br>
-Fin de l'enchère : <input name="" value ="" style="border-style : none" />
-</br>
-Vendeur : <input name="" value="" style="border-style : none" />
+<div style="margin-left : 275px">Vendeur : </div>
 </div>
-<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; text-align : right; margin-left : 50px; float : left;">
-<input name="" value="" style="border-style : none" />
+<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; margin-left : 50px; float : left;">
+<%	String nomarticle3 = (String) request.getAttribute("nomarticle3");%>
+<div style="margin-left : 275px"><%=nomarticle3 %> </div>
 </br>
-Prix : <input name="" value="" style="border-style : none" />
+<%	int prixarticle3 = (int) request.getAttribute("prixarticle3");%>
+<div style="margin-left : 275px">Prix : <%=prixarticle3 %> points </div>
 </br>
-Fin de l'enchère : <input name="" value ="" style="border-style : none" />
+<%	LocalDate datefinarticle3 = (LocalDate) request.getAttribute("datefinarticle3");%>
+<div style="margin-left : 275px">Date Fin Enchères : <%=datefinarticle3 %> </div>
 </br>
-Vendeur : <input name="" value="" style="border-style : none" />
+<div style="margin-left : 275px">Vendeur : </div>
 </div>
 </div>
+<div style = "width : 80%; display : block;">
+<div style =" width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; float : left;">
+<%	String nomarticle4 = (String) request.getAttribute("nomarticle4");%>
+<div style="margin-left : 275px"><%=nomarticle4 %> </div>
+</br>
+<%	int prixarticle4 = (int) request.getAttribute("prixarticle4");%>
+<div style="margin-left : 275px">Prix : <%=prixarticle4 %> points </div>
+</br>
+<%	LocalDate datefinarticle4 = (LocalDate) request.getAttribute("datefinarticle4");%>
+<div style="margin-left : 275px">Date Fin Enchères : <%=datefinarticle4 %> </div>
+</br>
+<div style="margin-left : 275px">Vendeur : </div>
+</div>
+<div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; margin-left : 50px; float : left;">
+<%	String nomarticle5 = (String) request.getAttribute("nomarticle5");%>
+<div style="margin-left : 275px"><%=nomarticle5 %> </div>
+</br>
+<%	int prixarticle5 = (int) request.getAttribute("prixarticle5");%>
+<div style="margin-left : 275px">Prix : <%=prixarticle5 %> points </div>
+</br>
+<%	LocalDate datefinarticle5 = (LocalDate) request.getAttribute("datefinarticle5");%>
+<div style="margin-left : 275px">Date Fin Enchères : <%=datefinarticle5 %> </div>
+</br>
+<div style="margin-left : 275px">Vendeur : </div>
+</div>
+</div>
+
 
 </body>
 </html>
