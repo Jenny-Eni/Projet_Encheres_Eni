@@ -41,7 +41,6 @@ public class ServletPageAccueil extends HttpServlet {
 			if (session != null) {
 				List<ArticleVendu> listeUtilisateur = new ArrayList<ArticleVendu>();
 				int idSession = (int) session.getAttribute("id");
-				System.out.println(idSession);
 				for(ArticleVendu a : listeArticleVendu) {
 					if (a.getNoUtilisateur() == idSession){
 						listeUtilisateur.add(a);
