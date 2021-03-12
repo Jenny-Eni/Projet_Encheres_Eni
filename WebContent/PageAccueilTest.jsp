@@ -45,7 +45,9 @@
 		
 		<c:if test="${!empty sessionScope.id}">
 	 		<h2>Liste de mes articles en vente</h2>
-			<p>afficher les articles en vente de l'utilisateur (à coder)</p>
+			<c:forEach var="var" items="${listeUtilisateur}" >
+           		<p>Article : ${var.nomArticle}</p>
+    		</c:forEach>
 		</c:if>
 
 

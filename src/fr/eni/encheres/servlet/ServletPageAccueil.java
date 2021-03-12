@@ -3,6 +3,7 @@ package fr.eni.encheres.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.encheres.bll.ArticleVenduManager;
 import fr.eni.encheres.bll.UtilisateurManager;
@@ -33,10 +35,27 @@ public class ServletPageAccueil extends HttpServlet {
 			String prixArticle = "prixarticle";
 			String dateFinEnchere = "datefinarticle";
 			String noUtilisateur = "pseudo";
-			for(int i = 0; i < 6; i++) {
+			
+			
+			HttpSession session = request.getSession(false);
+			if (session != null) {
+				List<ArticleVendu> listeUtilisateur = new ArrayList<ArticleVendu>();
+				int idSession = (int) session.getAttribute("id");
+				System.out.println(idSession);
+				for(ArticleVendu a : listeArticleVendu) {
+					if (a.getNoUtilisateur() == idSession){
+						listeUtilisateur.add(a);
+					}
+				}
+				request.setAttribute("listeUtilisateur", listeUtilisateur);
+			}
+			
+			
+			
+			for(int i = 0; i < listeArticleVendu.size(); i++) {
 				String nomArticlePourJSP = nomArticle + i;
 				String prixArticlePourJSP = prixArticle + i;
-				String dateFinEncherePourJSP = dateFinEnchere +i;
+				String dateFinEncherePourJSP = dateFinEnchere + i;
 				String noUtilisateurPourJSP = noUtilisateur + i;
 				String nomArticleVendu = listeArticleVendu.get(i).getNomArticle();
 				request.setAttribute(nomArticlePourJSP, nomArticleVendu);
@@ -46,7 +65,6 @@ public class ServletPageAccueil extends HttpServlet {
 				request.setAttribute(dateFinEncherePourJSP, dateFinEnchereArticleVendu);
 				Utilisateur utilisateur = um.afficherUtilisateur(listeArticleVendu.get(i).getNoUtilisateur());
 				request.setAttribute(noUtilisateurPourJSP, utilisateur.getPseudo());
-
 			}
 			
 //			List<ArticleVendu> listeArticleVendu = am.afficherArticle();
