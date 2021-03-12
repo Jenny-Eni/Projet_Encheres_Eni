@@ -16,7 +16,7 @@ import fr.eni.encheres.bo.Categorie;
 
 public class ArticleVenduDAOJdbc implements ArticleVenduDAO {
 	private static final String SQL_INSERT_ARTICLE = "INSERT INTO ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, no_utilisateur, no_categorie) VALUES (?, ?, ?, ?, ?, ?, ?);";
-	private static final String SQL_SELECT_ARTICLE = "SELECT * FROM ARTICLES_VENDUS";
+	private static final String SQL_SELECT_ARTICLE = "SELECT * FROM ARTICLES_VENDUS ORDER BY no_article DESC";
 	@Override
 	public void ajouterArticle(ArticleVendu articleVendu) throws SQLException {
 		try(Connection cnx = ConnectionProvider.getConnection()){
