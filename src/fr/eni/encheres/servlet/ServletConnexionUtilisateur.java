@@ -21,10 +21,11 @@ public class ServletConnexionUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String connexion = request.getParameter("connect");
 		
 		if(connexion == null || connexion.isEmpty()) 
-			connexion = "Connexion";
+			connexion = "S'inscrire - Se Connecter";
 			
 		if (connexion.equals("S'inscrire - Se Connecter")) {
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Connexion/ConnexionUtilisateur.jsp");

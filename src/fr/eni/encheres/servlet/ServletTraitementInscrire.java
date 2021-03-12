@@ -29,6 +29,7 @@ public class ServletTraitementInscrire extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Je récupère les données
+		request.setCharacterEncoding("UTF-8");
 		String pseudo = request.getParameter("pseudo");
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
@@ -55,7 +56,7 @@ public class ServletTraitementInscrire extends HttpServlet {
 		}
 		
 		request.setAttribute("message", message);
-		RequestDispatcher rd = request.getRequestDispatcher("/ServletPageAccueil");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/InscriptionUtilisateur/Inscription.jsp");
 		rd.forward(request, response);
 		
 	}
