@@ -56,7 +56,7 @@ public class ArticleVenduDAOJdbc implements ArticleVenduDAO {
 		        stmt = cnx.prepareStatement(SQL_SELECT_ARTICLE);
 		        rs = stmt.executeQuery(); 
 		        while(rs.next()) {
-		        	listeArticle.add(new ArticleVendu(rs.getString("nom_article"), rs.getInt("prix_initial"),rs.getDate("date_fin_encheres").toLocalDate()));
+		        	listeArticle.add(new ArticleVendu(rs.getString("nom_article"), rs.getInt("prix_initial"),rs.getDate("date_fin_encheres").toLocalDate(),rs.getInt("no_utilisateur")));
 		        }
 		        rs.close();
 		        stmt.close();

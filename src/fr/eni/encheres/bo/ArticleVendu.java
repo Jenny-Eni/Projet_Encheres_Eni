@@ -121,11 +121,11 @@ public class ArticleVendu implements Serializable{
 		this.noArticle = noArticle;
 	}
 
-	public ArticleVendu(String nomArticle, int prixInitial, LocalDate dateFinEncheres) {
+	public ArticleVendu(String nomArticle, int prixInitial, LocalDate dateFinEncheres, int noUtilisateur) {
 		this.nomArticle = nomArticle;
 		this.prixInitial = prixInitial;
 		this.dateFinEncheres = dateFinEncheres;
-	
+		this.noUtilisateur = noUtilisateur;
 	}
 
 	@Override

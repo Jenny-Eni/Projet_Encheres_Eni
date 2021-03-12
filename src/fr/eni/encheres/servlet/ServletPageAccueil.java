@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.encheres.bll.ArticleVenduManager;
+import fr.eni.encheres.bll.UtilisateurManager;
 import fr.eni.encheres.bo.ArticleVendu;
+import fr.eni.encheres.bo.Utilisateur;
 
 
 @WebServlet("/ServletPageAccueil")
@@ -24,21 +26,27 @@ public class ServletPageAccueil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		ArticleVenduManager am = new ArticleVenduManager();
+		UtilisateurManager um = new UtilisateurManager();
 		try {
 			List<ArticleVendu> listeArticleVendu = am.afficherArticle();
 			String nomArticle = "nomarticle";
 			String prixArticle = "prixarticle";
 			String dateFinEnchere = "datefinarticle";
+			String noUtilisateur = "pseudo";
 			for(int i = 0; i < 6; i++) {
 				String nomArticlePourJSP = nomArticle + i;
 				String prixArticlePourJSP = prixArticle + i;
 				String dateFinEncherePourJSP = dateFinEnchere +i;
+				String noUtilisateurPourJSP = noUtilisateur + i;
 				String nomArticleVendu = listeArticleVendu.get(i).getNomArticle();
 				request.setAttribute(nomArticlePourJSP, nomArticleVendu);
 				int prixArticleVendu = listeArticleVendu.get(i).getPrixInitial();
 				request.setAttribute(prixArticlePourJSP, prixArticleVendu);
 				LocalDate dateFinEnchereArticleVendu = listeArticleVendu.get(i).getDateFinEncheres();
 				request.setAttribute(dateFinEncherePourJSP, dateFinEnchereArticleVendu);
+				Utilisateur utilisateur = um.afficherUtilisateur(listeArticleVendu.get(i).getNoUtilisateur());
+				request.setAttribute(noUtilisateurPourJSP, utilisateur.getPseudo());
+
 			}
 			
 //			List<ArticleVendu> listeArticleVendu = am.afficherArticle();

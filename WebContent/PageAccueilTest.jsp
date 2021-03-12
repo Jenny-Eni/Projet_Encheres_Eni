@@ -65,7 +65,8 @@
 <%	LocalDate datefinarticle0 = (LocalDate) request.getAttribute("datefinarticle0");%>
 <div style="margin-left : 275px">Date Fin Enchères : <%=datefinarticle0 %> </div>
 </br>
-<div style="margin-left : 275px">Vendeur : </div>
+<%	String pseudo0 = (String) request.getAttribute("pseudo0");%>
+<div style="margin-left : 275px">Vendeur : <%=pseudo0 %> </div>
 </div>
 <div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; margin-left : 50px; float : left;">
 <%	String nomarticle1 = (String) request.getAttribute("nomarticle1");%>
@@ -77,7 +78,8 @@
 <%	LocalDate datefinarticle1 = (LocalDate) request.getAttribute("datefinarticle1");%>
 <div style="margin-left : 275px">Date Fin Enchères : <%=datefinarticle1 %> </div>
 </br>
-<div style="margin-left : 275px">Vendeur : </div>
+<%	String pseudo1 = (String) request.getAttribute("pseudo1");%>
+<div style="margin-left : 275px">Vendeur : <%=pseudo1 %> </div>
 </div>
 </div>
 <div style = "width : 80%; display : block;">
@@ -91,7 +93,8 @@
 <%	LocalDate datefinarticle2 = (LocalDate) request.getAttribute("datefinarticle2");%>
 <div style="margin-left : 275px">Date Fin Enchères : <%=datefinarticle2 %> </div>
 </br>
-<div style="margin-left : 275px">Vendeur : </div>
+<%	String pseudo2 = (String) request.getAttribute("pseudo2");%>
+<div style="margin-left : 275px">Vendeur : <%=pseudo2 %> </div>
 </div>
 <div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; margin-left : 50px; float : left;">
 <%	String nomarticle3 = (String) request.getAttribute("nomarticle3");%>
@@ -103,7 +106,8 @@
 <%	LocalDate datefinarticle3 = (LocalDate) request.getAttribute("datefinarticle3");%>
 <div style="margin-left : 275px">Date Fin Enchères : <%=datefinarticle3 %> </div>
 </br>
-<div style="margin-left : 275px">Vendeur : </div>
+<%	String pseudo3 = (String) request.getAttribute("pseudo3");%>
+<div style="margin-left : 275px">Vendeur : <%=pseudo3 %> </div>
 </div>
 </div>
 <div style = "width : 80%; display : block;">
@@ -117,7 +121,8 @@
 <%	LocalDate datefinarticle4 = (LocalDate) request.getAttribute("datefinarticle4");%>
 <div style="margin-left : 275px">Date Fin Enchères : <%=datefinarticle4 %> </div>
 </br>
-<div style="margin-left : 275px">Vendeur : </div>
+<%	String pseudo4 = (String) request.getAttribute("pseudo4");%>
+<div style="margin-left : 275px">Vendeur : <%=pseudo4 %> </div>
 </div>
 <div style ="width : 33%; padding-top:10px; padding-bottom:10px;border: 3px solid #000000; margin-left : 50px; float : left;">
 <%	String nomarticle5 = (String) request.getAttribute("nomarticle5");%>
@@ -129,7 +134,8 @@
 <%	LocalDate datefinarticle5 = (LocalDate) request.getAttribute("datefinarticle5");%>
 <div style="margin-left : 275px">Date Fin Enchères : <%=datefinarticle5 %> </div>
 </br>
-<div style="margin-left : 275px">Vendeur : </div>
+<%	String pseudo5 = (String) request.getAttribute("pseudo5");%>
+<div style="margin-left : 275px">Vendeur : <%=pseudo5 %> </div>
 </div>
 </div>
 
